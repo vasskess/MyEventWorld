@@ -28,7 +28,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     #my_apps
-    "MyEventWorld.accounts"
+    "MyEventWorld.accounts",
+    "MyEventWorld.events",
 ]
 
 MIDDLEWARE = [

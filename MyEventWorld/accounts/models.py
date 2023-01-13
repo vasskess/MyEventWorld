@@ -2,8 +2,8 @@ import uuid
 
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
-from django.core.validators import MinLengthValidator, MinValueValidator, MaxValueValidator
 from django.db import models
+from django.core.validators import MinLengthValidator, MinValueValidator, MaxValueValidator
 
 from MyEventWorld.accounts.managers import EventUserManager
 from MyEventWorld.core.helpers.gender_types import Genders
