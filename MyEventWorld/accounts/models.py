@@ -5,9 +5,10 @@ from django.contrib.auth.models import PermissionsMixin
 from django.db import models
 from django.core.validators import MinLengthValidator, MinValueValidator, MaxValueValidator
 
+from cloudinary.models import CloudinaryField
+
 from MyEventWorld.accounts.managers import EventUserManager
 from MyEventWorld.core.helpers.gender_types import Genders
-from MyEventWorld.core.validators.file_size_validator import validate_file_less_than_3mb
 
 
 class EventUser(AbstractBaseUser, PermissionsMixin):
@@ -57,9 +58,7 @@ class EventProfile(models.Model):
         verbose_name="User email",
     )
 
-    profile_avatar = models.ImageField(
-        upload_to="profile_avatars/",
-        validators=(validate_file_less_than_3mb,),
+    profile_avatar = CloudinaryField(
         null=True,
         blank=True,
         verbose_name="Profile avatar",

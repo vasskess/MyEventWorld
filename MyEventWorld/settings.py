@@ -1,4 +1,8 @@
 from pathlib import Path
+
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 import environ
 
 env = environ.Env()
@@ -27,9 +31,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    #my_apps
+    # my_apps
     "MyEventWorld.accounts",
     "MyEventWorld.events",
+    # other_apps
+    "cloudinary",
 ]
 
 MIDDLEWARE = [
@@ -47,8 +53,7 @@ ROOT_URLCONF = "MyEventWorld.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / 'templates']
-        ,
+        "DIRS": [BASE_DIR / 'templates'],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -62,6 +67,12 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "MyEventWorld.wsgi.application"
+
+cloudinary.config(
+    cloud_name=env("CLOUD_NAME"),
+    api_key=env("API_KEY"),
+    api_secret=env("API_SECRET"),
+)
 
 DATABASES = {
     'default': {
@@ -90,7 +101,6 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
-
 
 LANGUAGE_CODE = "en-us"
 

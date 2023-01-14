@@ -3,9 +3,10 @@ import uuid
 from django.db import models
 from django.core.validators import MinLengthValidator
 
+from cloudinary.models import CloudinaryField
+
 from MyEventWorld.accounts.models import EventProfile
 from MyEventWorld.core.helpers.event_types import Events
-from MyEventWorld.core.validators.file_size_validator import validate_file_less_than_3mb
 
 
 class Event(models.Model):
@@ -42,9 +43,7 @@ class Event(models.Model):
         blank=False,
         verbose_name="Event creator",
     )
-    event_picture = models.ImageField(
-        upload_to="event_avatars/",
-        validators=(validate_file_less_than_3mb,),
+    event_picture = CloudinaryField(
         null=True,
         blank=True,
         verbose_name="Event picture",
