@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     # my_apps
     "MyEventWorld.accounts",
     "MyEventWorld.events",
+    "MyEventWorld.common_stuff",
     # other_apps
     "cloudinary",
 ]
