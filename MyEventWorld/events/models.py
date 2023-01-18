@@ -17,6 +17,9 @@ class Event(models.Model):
     EVENT_DESCRIPTION_MIN_LEN = 3
     EVENT_DESCRIPTION_MAX_LEN = 2500
     EVENT_DESCRIPTION_LEN_MESSAGE = f"Description must be at least {EVENT_DESCRIPTION_MIN_LEN} characters long"
+    '''
+        Default messages will be used for: TITLE_MAX_LEN & EVENT_DESCRIPTION_MAX_LEN Validations
+    '''
 
     title = models.CharField(
         max_length=TITLE_MAX_LEN,
@@ -100,6 +103,7 @@ class Review(models.Model):
         validators=(MinLengthValidator(REVIEW_TEXT_MIN_LEN, ),),
         null=False,
         blank=False,
+        help_text="Keep in mind this is one-time review and you wont be able to edit it!",
         verbose_name="Review text",
     )
     date_created = models.DateTimeField(auto_now_add=True)

@@ -1,3 +1,128 @@
-from django.shortcuts import render
+from django.contrib.auth import login
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.views import LoginView, LogoutView
+from django.db.models import Q
+from django.urls import reverse_lazy
+from django.views.generic import (
+    ListView,
+    CreateView,
+    DetailView,
+    UpdateView,
+    DeleteView,
+)
+from django.contrib import messages
 
-# Create your views here.
+from MyEventWorld.accounts.forms import *
+from MyEventWorld.accounts.models import EventProfile
+
+
+class UsersList(ListView):
+    model = EventProfile
+    context_object_name = "profiles"
+    template_name = ""
+    paginate_by = 3
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        query = self.request.GET.get("search", None)
+
+        if query:
+            queryset = EventProfile.objects.distinct().filter(
+                Q(user__email__icontains=query)
+                | Q(first_name__icontains=query)
+                | Q(last_name__icontains=query)
+                | Q(gender__icontains=query)
+                | Q(location__icontains=query)
+                | Q(about_me__icontains=query)
+                | Q(interest__title__icontains=query)
+            )
+        return queryset
+
+
+class UserDetails(DetailView):
+    model = EventProfile
+    template_name = ""
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["owner"] = self.request.user.id == self.object.pk
+        context["all_interests"] = self.object.interest_set.all
+        context["all_events"] = self.object.event_set.all
+        return context
+
+
+class UserProfile(LoginRequiredMixin, DetailView):
+    model = EventProfile
+    template_name = ""
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["interest_owner"] = self.request.user.id == self.object.pk
+        context["all_interests"] = self.object.interest_set.all
+        context["all_events"] = self.object.event_set.all
+        return context
+
+
+class UserCreate(CreateView):
+    template_name = ""
+    form_class = ProfileCreationForm
+
+    def form_valid(self, form):
+        result = super().form_valid(form)
+        login(self.request, self.object)
+        messages.error(
+            self.request,
+            "User registered successfully. Manage your profile and start creating events from My Profile",
+        )
+        return result
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["page"] = "register"
+        return context
+
+    def get_success_url(self):
+        return reverse_lazy("events-list")
+
+
+class UserProfileEdit(LoginRequiredMixin, UpdateView):
+    model = EventProfile
+    form_class = ProfileEditForm
+    template_name = ""
+
+    def get_success_url(self):
+        return reverse_lazy(
+            "profile-details",
+            kwargs={
+                "pk": self.request.user.pk,
+            },
+        )
+
+
+class UserProfileDelete(LoginRequiredMixin, DeleteView):
+    model = EventProfile
+    form_class = ProfileDeleteForm
+    template_name = ""
+
+    def get_success_url(self):
+        messages.success(self.request, "User was deleted successfully")
+        return reverse_lazy("login")
+
+
+class UserLogin(LoginView):
+    template_name = ""
+    form_class = UserLoginForm
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["page"] = "login"
+        return context
+
+    def get_success_url(self):
+        return reverse_lazy("events-list")
+
+
+class UserLogout(LogoutView):
+    def get_success_url(self):
+        messages.success(self.request, "User was logged out")
+        return reverse_lazy("login")

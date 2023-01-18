@@ -35,17 +35,21 @@ class EventUser(AbstractBaseUser, PermissionsMixin):
 class EventProfile(models.Model):
     FIRST_NAME_MIN_LEN = 3
     FIRST_NAME_MAX_LEN = 20
-    FIRST_NAME_LEN_MESSAGE = f"First name must be at least {FIRST_NAME_MIN_LEN} characters long"
+    FIRST_NAME_MIN_LEN_MESSAGE = f"First name must be at least {FIRST_NAME_MIN_LEN} characters long"
 
     LAST_NAME_MIN_LEN = 3
     LAST_NAME_MAX_LEN = 30
-    LAST_NAME_LEN_MESSAGE = f"Last name must be at least {LAST_NAME_MIN_LEN} characters long"
+    LAST_NAME_MIN_LEN_MESSAGE = f"Last name must be at least {LAST_NAME_MIN_LEN} characters long"
 
     LOCATION_MIN_LEN = 3
     LOCATION_MAX_LEN = 55
-    LOCATION_LEN_MESSAGE = f"Location must be at least {LOCATION_MIN_LEN} characters long"
+    LOCATION_MIN_LEN_MESSAGE = f"Location must be at least {LOCATION_MIN_LEN} characters long"
 
     ABOUT_ME_MAX_LEN = 2500
+    '''
+        Default messages will be used for:
+        FIRST_NAME_MAX_LEN, LAST_NAME_MAX_LEN, LOCATION_MAX_LEN & ABOUT_ME_MAX_LEN Validations
+    '''
 
     AGE_MIN_VALUE = 18
     AGE_MAX_VALUE = 122
@@ -66,21 +70,21 @@ class EventProfile(models.Model):
 
     first_name = models.CharField(
         max_length=FIRST_NAME_MAX_LEN,
-        validators=(MinLengthValidator(FIRST_NAME_MIN_LEN, FIRST_NAME_LEN_MESSAGE),),
+        validators=(MinLengthValidator(FIRST_NAME_MIN_LEN, FIRST_NAME_MIN_LEN_MESSAGE),),
         null=True,
         blank=True,
         verbose_name="First Name",
     )
     last_name = models.CharField(
         max_length=LAST_NAME_MAX_LEN,
-        validators=(MinLengthValidator(FIRST_NAME_MIN_LEN, LAST_NAME_LEN_MESSAGE),),
+        validators=(MinLengthValidator(LAST_NAME_MAX_LEN, LAST_NAME_MIN_LEN_MESSAGE),),
         null=True,
         blank=True,
         verbose_name="Last Name",
     )
     location = models.CharField(
         max_length=LOCATION_MAX_LEN,
-        validators=(MinLengthValidator(LOCATION_MIN_LEN, LOCATION_LEN_MESSAGE),),
+        validators=(MinLengthValidator(LOCATION_MIN_LEN, LOCATION_MIN_LEN_MESSAGE),),
         null=True,
         blank=True,
         verbose_name="Location",

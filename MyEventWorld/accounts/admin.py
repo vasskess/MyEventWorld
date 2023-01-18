@@ -32,9 +32,10 @@ class EventUserAdmin(auth_admin.UserAdmin):
     readonly_fields = ["date_joined"]
     add_form = ProfileCreationForm
 
-    # The fields to be used in displaying the User model.
-    # These override the definitions on the base UserAdmin
-    # that reference specific fields on auth.User.
+    '''
+        The fields to be used in displaying the User model.
+        These override the definitions on the base UserAdmin that reference specific fields on auth.User.
+    '''
 
     fieldsets = (
         (None, {"fields": ()}),
@@ -61,8 +62,10 @@ class EventUserAdmin(auth_admin.UserAdmin):
         ),
     )
 
-    # add_fieldsets is not a standard ModelAdmin attribute. UserAdmin
-    # overrides get_fieldsets to use this attribute when creating a user.
+    '''
+        add_fieldsets is not a standard ModelAdmin attribute.
+        UserAdmin overrides get_fieldsets to use this attribute when creating a user.
+    '''
 
     add_fieldsets = (
         (
