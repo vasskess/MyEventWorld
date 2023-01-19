@@ -14,9 +14,7 @@ class Interest(models.Model):
     DESCRIPTION_MIN_LEN = 2
     DESCRIPTION_MAX_LEN = 2500
     DESCRIPTION_LEN_MESSAGE = f"Description must be at least {DESCRIPTION_MIN_LEN} characters long"
-    '''
-        Default messages will be used for: TITLE_MAX_LEN & DESCRIPTION_MAX_LEN Validations
-    '''
+    # Default messages will be used for: TITLE_MAX_LEN & DESCRIPTION_MAX_LEN Validations
 
     interest_creator = models.ForeignKey(
         EventProfile,
@@ -53,9 +51,7 @@ class Message(models.Model):
     TEXT_MIN_LEN = 2
     TEXT_MAX_LEN = 2500
     TEXT_LEN_MESSAGE = f"Field must contain at least {TEXT_MIN_LEN} characters"
-    '''
-        Default messages will be used for: TOPIC_MAX_LEN & TEXT_MAX_LEN Validations
-    '''
+    # Default messages will be used for: TOPIC_MAX_LEN & TEXT_MAX_LEN Validations
 
     sender = models.ForeignKey(
         EventProfile,

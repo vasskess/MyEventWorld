@@ -1,5 +1,7 @@
 from pathlib import Path
 
+import django.core.mail.backends.smtp
+
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
@@ -74,6 +76,19 @@ cloudinary.config(
     api_key=env("API_KEY"),
     api_secret=env("API_SECRET"),
 )
+
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
+
+EMAIL_BACKEND = env("EMAIL_BACKEND")
+EMAIL_HOST = env("EMAIL_HOST")
+EMAIL_PORT = env("EMAIL_PORT")
+EMAIL_USE_TLS = env("EMAIL_USE_TLS")
+EMAIL_HOST_USER = env("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
 
 DATABASES = {
     'default': {

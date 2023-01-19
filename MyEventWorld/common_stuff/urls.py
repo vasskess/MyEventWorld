@@ -12,8 +12,8 @@ urlpatterns = (
             ]
         ),
     ),
-    path("inbox/<str:pk>", MessageInbox.as_view(), name="message-inbox"),
-    path("message/<str:pk>", ReadMessage.as_view(), name="message-read"),
-    path("create-message/<str:pk>", CreateMessage.as_view(), name="message-create"),
-    path("delete-message/<str:pk>", DeleteMessage.as_view(), name="message-delete"),
+    path("inbox/<str:pk>/", MessageInbox.as_view(), name="message-inbox"),
+    path("message/<str:pk>/", ReadMessage.as_view(), name="message-read"),
+    path("create-message/<str:pk>/", CreateMessage.as_view(), name="message-create"),
+    path("delete-message/<str:pk>/", DeleteMessage.as_view(), name="message-delete"),
 )

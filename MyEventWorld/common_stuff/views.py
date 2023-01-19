@@ -1,3 +1,4 @@
+from django.core.exceptions import PermissionDenied
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
@@ -10,6 +11,7 @@ from django.views.generic import (
     DetailView,
 )
 
+from MyEventWorld.core.mixins.login_restrict_mixin import InterestOwnershipMixin, MessageOwnershipMixin
 from MyEventWorld.common_stuff.forms import *
 from MyEventWorld.common_stuff.models import *
 
@@ -35,7 +37,7 @@ class InterestCreate(LoginRequiredMixin, CreateView):
         )
 
 
-class InterestUpdate(LoginRequiredMixin, UpdateView):
+class InterestUpdate(LoginRequiredMixin, InterestOwnershipMixin, UpdateView):
     model = Interest
     form_class = EditInterestForm
     template_name = ""
@@ -50,7 +52,7 @@ class InterestUpdate(LoginRequiredMixin, UpdateView):
         )
 
 
-class InterestDelete(LoginRequiredMixin, DeleteView):
+class InterestDelete(LoginRequiredMixin, InterestOwnershipMixin, DeleteView):
     model = Interest
     form_class = DeleteInterestForm
     template_name = ""
@@ -81,7 +83,25 @@ class MessageInbox(LoginRequiredMixin, ListView):
         return context
 
 
-class ReadMessage(LoginRequiredMixin, DetailView):
+class CreateMessage(LoginRequiredMixin, CreateView):
+    model = Message
+    form_class = CreateMessageForm
+    template_name = ""
+
+    def form_valid(self, form):
+        form.instance.sender = EventProfile.objects.get(user_id=self.request.user.pk)
+        form.instance.receiver = EventProfile.objects.get(user_id=self.kwargs["pk"])
+        if form.instance.sender == form.instance.receiver:
+            # This will not let user manually access it's pk and send message to it's self
+            raise PermissionDenied
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        messages.info(self.request, "Message sent successfully")
+        return reverse_lazy("users-list")
+
+
+class ReadMessage(LoginRequiredMixin, MessageOwnershipMixin, DetailView):
     model = Message
     context_object_name = "message"
     template_name = ""
@@ -97,22 +117,7 @@ class ReadMessage(LoginRequiredMixin, DetailView):
         return context
 
 
-class CreateMessage(LoginRequiredMixin, CreateView):
-    model = Message
-    form_class = CreateMessageForm
-    template_name = ""
-
-    def form_valid(self, form):
-        form.instance.sender = EventProfile.objects.get(user_id=self.request.user.pk)
-        form.instance.receiver = EventProfile.objects.get(user_id=self.kwargs["pk"])
-        return super().form_valid(form)
-
-    def get_success_url(self):
-        messages.info(self.request, "Message sent successfully")
-        return reverse_lazy("users-list")
-
-
-class DeleteMessage(LoginRequiredMixin, DeleteView):
+class DeleteMessage(LoginRequiredMixin, MessageOwnershipMixin, DeleteView):
     model = Message
     form_class = DeleteMessageForm
     context_object_name = "message"

@@ -11,6 +11,7 @@ from django.views.generic import (
     DeleteView,
 )
 
+from MyEventWorld.core.mixins.login_restrict_mixin import EventOwnershipMixin
 from MyEventWorld.events.forms import *
 from MyEventWorld.events.models import *
 from MyEventWorld.accounts.models import EventProfile
@@ -52,9 +53,10 @@ class EventDetails(DetailView):
             return self.get(request, *args, **kwargs)
         messages.error(
             self.request,
-            f"Review title must contains at least {form.instance.__class__.REVIEW_TITLE_MIN_LEN} \
-            characters - Review text must be at least {form.instance.__class__.REVIEW_TEXT_MIN_LEN} \
-            characters long"
+            f"Review title must at least {form.instance.__class__.REVIEW_TITLE_MIN_LEN} \
+                and maximum {form.instance.__class__.REVIEW_TITLE_MAX_LEN} characters long ! \
+                Review text must be at least {form.instance.__class__.REVIEW_TEXT_MIN_LEN} \
+                and maximum {form.instance.__class__.REVIEW_TEXT_MAX_LEN} characters long !"
         )
         return redirect(request.META["HTTP_REFERER"])
 
@@ -89,7 +91,7 @@ class EventCreate(LoginRequiredMixin, CreateView):
         )
 
 
-class EventUpdate(LoginRequiredMixin, UpdateView):
+class EventUpdate(LoginRequiredMixin, EventOwnershipMixin, UpdateView):
     model = Event
     form_class = EditEventForm
     context_object_name = "event"
@@ -104,7 +106,7 @@ class EventUpdate(LoginRequiredMixin, UpdateView):
         )
 
 
-class EventDelete(LoginRequiredMixin, DeleteView):
+class EventDelete(LoginRequiredMixin, EventOwnershipMixin, DeleteView):
     model = Event
     form_class = DeleteEventForm
     template_name = ""

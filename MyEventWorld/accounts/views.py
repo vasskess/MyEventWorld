@@ -11,6 +11,7 @@ from django.views.generic import (
     DeleteView,
 )
 from django.contrib import messages
+from MyEventWorld.core.mixins.login_restrict_mixin import NotLoginRequiredMixin, UserOwnershipMixin
 
 from MyEventWorld.accounts.forms import *
 from MyEventWorld.accounts.models import EventProfile
@@ -51,7 +52,7 @@ class UserDetails(DetailView):
         return context
 
 
-class UserProfile(LoginRequiredMixin, DetailView):
+class UserProfile(LoginRequiredMixin, UserOwnershipMixin, DetailView):
     model = EventProfile
     template_name = ""
 
@@ -63,7 +64,7 @@ class UserProfile(LoginRequiredMixin, DetailView):
         return context
 
 
-class UserCreate(CreateView):
+class UserCreate(NotLoginRequiredMixin, CreateView):
     template_name = ""
     form_class = ProfileCreationForm
 
@@ -85,7 +86,7 @@ class UserCreate(CreateView):
         return reverse_lazy("events-list")
 
 
-class UserProfileEdit(LoginRequiredMixin, UpdateView):
+class UserProfileEdit(LoginRequiredMixin, UserOwnershipMixin, UpdateView):
     model = EventProfile
     form_class = ProfileEditForm
     template_name = ""
@@ -99,7 +100,7 @@ class UserProfileEdit(LoginRequiredMixin, UpdateView):
         )
 
 
-class UserProfileDelete(LoginRequiredMixin, DeleteView):
+class UserProfileDelete(LoginRequiredMixin, UserOwnershipMixin, DeleteView):
     model = EventProfile
     form_class = ProfileDeleteForm
     template_name = ""
@@ -109,7 +110,7 @@ class UserProfileDelete(LoginRequiredMixin, DeleteView):
         return reverse_lazy("login")
 
 
-class UserLogin(LoginView):
+class UserLogin(NotLoginRequiredMixin, LoginView):
     template_name = ""
     form_class = UserLoginForm
 

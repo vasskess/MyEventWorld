@@ -17,9 +17,7 @@ class Event(models.Model):
     EVENT_DESCRIPTION_MIN_LEN = 3
     EVENT_DESCRIPTION_MAX_LEN = 2500
     EVENT_DESCRIPTION_LEN_MESSAGE = f"Description must be at least {EVENT_DESCRIPTION_MIN_LEN} characters long"
-    '''
-        Default messages will be used for: TITLE_MAX_LEN & EVENT_DESCRIPTION_MAX_LEN Validations
-    '''
+    # Default messages will be used for: TITLE_MAX_LEN & EVENT_DESCRIPTION_MAX_LEN Validations
 
     title = models.CharField(
         max_length=TITLE_MAX_LEN,
