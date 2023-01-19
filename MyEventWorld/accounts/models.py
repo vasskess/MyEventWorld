@@ -75,7 +75,7 @@ class EventProfile(models.Model):
     )
     last_name = models.CharField(
         max_length=LAST_NAME_MAX_LEN,
-        validators=(MinLengthValidator(LAST_NAME_MAX_LEN, LAST_NAME_MIN_LEN_MESSAGE),),
+        validators=(MinLengthValidator(LAST_NAME_MIN_LEN, LAST_NAME_MIN_LEN_MESSAGE),),
         null=True,
         blank=True,
         verbose_name="Last Name",
