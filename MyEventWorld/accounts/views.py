@@ -11,7 +11,8 @@ from django.views.generic import (
     DeleteView,
 )
 from django.contrib import messages
-from MyEventWorld.core.mixins.login_restrict_mixin import NotLoginRequiredMixin, UserOwnershipMixin
+from MyEventWorld.core.mixins.login_restrict_mixin import NotLoginRequiredMixin
+from MyEventWorld.core.mixins.ownership_mixins import UserOwnershipMixin
 
 from MyEventWorld.accounts.forms import *
 from MyEventWorld.accounts.models import EventProfile

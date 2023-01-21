@@ -11,7 +11,7 @@ from django.views.generic import (
     DetailView,
 )
 
-from MyEventWorld.core.mixins.login_restrict_mixin import InterestOwnershipMixin, MessageOwnershipMixin
+from MyEventWorld.core.mixins.ownership_mixins import InterestOwnershipMixin, MessageOwnershipMixin
 from MyEventWorld.common_stuff.forms import *
 from MyEventWorld.common_stuff.models import *
 
@@ -92,7 +92,7 @@ class CreateMessage(LoginRequiredMixin, CreateView):
         form.instance.sender = EventProfile.objects.get(user_id=self.request.user.pk)
         form.instance.receiver = EventProfile.objects.get(user_id=self.kwargs["pk"])
         if form.instance.sender == form.instance.receiver:
-            # This will not let user manually access it's pk and send message to it's self
+            # This will not let user manually access its pk and send message to its self
             raise PermissionDenied
         return super().form_valid(form)
 
