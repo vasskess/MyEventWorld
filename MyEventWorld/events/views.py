@@ -32,7 +32,6 @@ class EventsList(ListView):
                 Q(title__icontains=query)
                 | Q(event_description__icontains=query)
                 | Q(event_category__icontains=query)
-                | Q(tags__title__icontains=query)
             )
         return queryset
 

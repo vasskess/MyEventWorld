@@ -103,8 +103,8 @@ class EventProfile(models.Model):
         choices=Genders.choices(),
         max_length=Genders.max_length(),
         default=Genders.Unpicked.name,
-        null=True,
-        blank=True,
+        null=False,
+        blank=False,
         verbose_name="Gender",
     )
 

@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.core.exceptions import ObjectDoesNotExist
 from django.db.models.signals import post_save, post_delete, pre_save
 from django.dispatch import receiver
 
@@ -39,9 +40,12 @@ def delete_old_profile_avatar_on_update(sender, instance, **kwargs):
     This will replace old Profile avatar with the new one in Cloudinary
     """
     if instance.profile_avatar:
-        profile_avatar_to_remove = EventProfile.objects.get(pk=instance.pk).profile_avatar
-        if profile_avatar_to_remove:
-            remove_entity_avatar_on_deletion_or_update.delay(profile_avatar_to_remove.public_id)
+        try:
+            profile_avatar_to_remove = EventProfile.objects.get(pk=instance.pk).profile_avatar
+            if profile_avatar_to_remove:
+                remove_entity_avatar_on_deletion_or_update.delay(profile_avatar_to_remove.public_id)
+        except ObjectDoesNotExist:
+            return
 
 
 @receiver(post_delete, sender=Event)
@@ -59,6 +63,9 @@ def delete_old_event_picture_on_update(sender, instance, **kwargs):
     This will replace old event picture with the new one in Cloudinary
     """
     if instance.event_picture:
-        event_picture_to_remove = Event.objects.get(pk=instance.pk).event_picture
-        if event_picture_to_remove:
-            remove_entity_avatar_on_deletion_or_update.delay(event_picture_to_remove.public_id)
+        try:
+            event_picture_to_remove = Event.objects.get(pk=instance.pk).event_picture
+            if event_picture_to_remove:
+                remove_entity_avatar_on_deletion_or_update.delay(event_picture_to_remove.public_id)
+        except ObjectDoesNotExist:
+            return

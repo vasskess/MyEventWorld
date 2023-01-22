@@ -26,7 +26,7 @@ class ProfileCreationForm(UserCreationForm):
     gender = forms.CharField(
         widget=forms.RadioSelect(choices=Genders.choices()),
         initial=Genders.Unpicked.name,
-        required=False,
+        required=True,
     )
 
     class Meta:
@@ -52,6 +52,12 @@ class ProfileCreationForm(UserCreationForm):
 
 
 class ProfileEditForm(ModelForm):
+    gender = forms.CharField(
+        widget=forms.RadioSelect(choices=Genders.choices()),
+        initial=Genders.Unpicked.name,
+        required=True,
+    )
+
     class Meta:
         model = EventProfile
         exclude = ("user",)

@@ -69,6 +69,7 @@ class EventUserAdmin(auth_admin.UserAdmin):
                     "password1",
                     "password2",
                     "age",
+                    "gender",
                     "is_staff",
                 ),
             },
