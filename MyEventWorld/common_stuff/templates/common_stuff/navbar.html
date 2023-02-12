@@ -1,0 +1,19 @@
+{% load static %}
+<header class="navbar">
+    <a class="logo" href="#">
+        <img src="{% static "images/calendar.svg" %}" alt="Calendar Logo"/>
+    </a>
+    <nav class="navigation">
+        <ul class="links">
+            <li class="header-item"><a href="#">Event Creators</a></li>
+            <li class="header-item"><a href="#">Events</a></li>
+            {% if request.user.is_authenticated %}
+                <li class="header-item"><a href="#">Inbox</a></li>
+                <li class="header-item"><a href="#">MyProfile</a></li>
+                <li class="header-item"><a href="#">Logout</a></li>
+            {% else %}
+                <li class="header-item"><a href="#">Login/Sign Up</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>

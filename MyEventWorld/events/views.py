@@ -20,7 +20,7 @@ from MyEventWorld.accounts.models import EventProfile
 class EventsList(ListView):
     model = Event
     context_object_name = "events"
-    template_name = ""
+    template_name = "events/events.html"
     paginate_by = 3
 
     def get_queryset(self):

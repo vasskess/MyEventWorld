@@ -110,7 +110,7 @@ DATABASES = {
 
 AUTH_USER_MODEL = "accounts.EventUser"
 
-LOGIN_URL = "login"
+# LOGIN_URL = "login" #TODO when login is rdy !!!
 
 AUTH_PASSWORD_VALIDATORS = [
     {
