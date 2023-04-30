@@ -1,120 +1,62 @@
 {% extends "common_stuff/base.html" %}
 {% load my_date_filter %}
-
 {% block content %}
-    <main class="events">
-        <section class="search-container">
-            <div class="search-section">
-                <div class="top-text">
-                    <h2><span>Choose the best event that suits you</span></h2>
-                </div>
-                <div class="search-items">
-                    <form class="form" action="{% url "events-list" %}" method="get">
-                        <div class="form-field">
-                            <label for="form-search">Search By Events </label>
-                            <input class="text-input" id="form-search" type="text" name="search"
-                                   placeholder="Search by Event Title"/>
-                        </div>
-                        <input class="search-input" type="submit" value="Search"/>
-                    </form>
-                </div>
+    <section class="section" id="events">
+        <div class="section-title">
+            <h2>select the <span>event</span> that suits you the best</h2>
+        </div>
+        <div class="search-section">
+            <div class="search-items">
+                <form class="form" action="{% url "events-list" %}" method="get">
+                    <div class="form-field">
+                        <label for="form-search">Search By Events </label>
+                        <input class="text-input" id="form-search" type="text" name="search"
+                               placeholder="Search by Event Title"/>
+                    </div>
+                    <input class="search-input" type="submit" value="Search"/>
+                </form>
             </div>
-        </section>
+        </div>
+        <div class="section-center events-center">
+            {% for event in events %}
+                <article class="event-card">
+                    <div class="event-img-container">
+                        <img src="{{ event.get_event_avatar }}" class="event-img" alt=""/>
+                        <p class="event-date">{{ event.created|my_filter }}</p>
+                    </div>
+                    <div class="event-info">
+                        <div class="event-title">
+                            <h4>{{ event.title|truncatechars:15 }}</h4>
+                            <p><a href="{% url "user-details" event.creator.pk %}">{{ event.creator }}</a></p>
+                        </div>
+                        <div class="event-desc">
+                            <p>{{ event.event_description|truncatechars:30 }}</p>
+                        </div>
+                        <div class="event-footer"><p>
+                            <span>{{ event.event_category }}</span>
+                        </p>
+                            <p>{{ tag }}</p>
+                        </div>
+                    </div>
+                </article>
 
-        <section class="projects-list">
-            <div class="container">
-                <div class="event">
-                    {% for event in events %}
-                        <div class="column">
-                            <div class="card-project">
-                                <div class="thumbnail">
-                                    <a href="{% url "event-details" event.pk %}">
-                                        <img class="thumbnail-image" src="{{ event.get_event_avatar }}"
-                                             alt="Event Avatar"/>
-                                    </a>
-                                </div>
-                                <div class="card-body">
-                                    <h3 class="event-title">{{ event.title }}</h3>
-                                    <p>
-                                        <span>
-                                            {{ event.event_description|truncatechars:45 }}
-                                        </span>
-                                    </p>
-                                    <p>
-                                        <a class="event-author" href="{% url "user-details" event.creator.pk %}">
-                                            {{ event.creator }}
-                                        </a>
-                                    </p>
-                                    <p class="event-date">
-                                        <span style="font-weight: bold;">Created: {{ event.created|my_filter }}</span>
-                                    </p>
-                                    <p>
-                                        <span style="font-weight: bold;">Category:</span>
-                                        <a class="event-creator">
-                                            {{ event.event_category }}
-                                        </a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    {% empty %}
-                        <div class="search-info">
-                            <h1>There is no matches for your search</h1>
-                        </div>
-                    {% endfor %}
+            {% empty %}
+                <div class="search-info">
+                    <h1>There is no matches for your search</h1>
                 </div>
-            </div>
-        </section>
-{#        <article class="card">#}
-{##}
-{#            <div class="thumbnail">#}
-{#                 <img#}
-{#                     class="thumbnail__img"#}
-{##}
-{#                       src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"#}
-{#                     alt="Unsplash img"#}
-{#                              />#}
-{#                        </div>#}
-{##}
-{##}
-{#            <div class="content">#}
-{#                 <h2 class="content__title">Jessica Award</h2>#}
-{#                 <p class="content__badge">Department Marketing</p>#}
-{##}
-{#                 <h3 class="content__section-title">Projects</h3>#}
-{##}
-{#                <ul class="content__projects" role="list">#}
-{##}
-{#                    <li class="project">#}
-{#                         <i class="project__icon far fa-file-alt"></i>#}
-{#                         <span class="project__name">Flagship design course</span>#}
-{#                                    </li>#}
-{##}
-{##}
-{#                    <li class="project">#}
-{#                         <i class="project__icon far fa-file-alt"></i>#}
-{#                         <span class="project__name">Social media app</span>#}
-{#                                    </li>#}
-{##}
-{##}
-{#                    <li class="project">#}
-{#                         <i class="project__icon far fa-file-alt"></i>#}
-{#                         <span class="project__name">Marketing app</span>#}
-{#                                    </li>#}
-{#                              </ul>#}
-{#                        </div>#}
-{#                  </article>#}
-    {% if is_paginated %}
-            <div class="paginator">
-            <ul class="paginator-container">
+            {% endfor %}
+        </div>
+        {% if is_paginated %}
+            <div class="pagination">
+            <ul class="container">
             {% if page_obj.has_previous and request.GET.search %}
                 <li><a href="{{ request.get_full_path }}&page={{ page_obj.previous_page_number }}"
-                       class="btn-page-link"
-                       data-page="{{ request.get_full_path }}&page={{ page_obj.previous_page_number }}">
+                       class="btn"
+                       data-page="{{ request.get_full_path }}&page={{ page_obj.previous_page_number }}">&#10094;
                     Prev</a></li>
             {% elif page_obj.has_previous %}
-                <li><a href="?page={{ page_obj.previous_page_number }}" class="btn-page-link"
-                       data-page="{{ request.get_full_path }}&page={{ page_obj.previous_page_number }}">
+                <li><a href="?page={{ page_obj.previous_page_number }}" class="btn"
+                       data-page="{{ request.get_full_path }}&page={{ page_obj.previous_page_number }}">&#10094;
                     Prev</a></li>
             {% endif %}
 
@@ -123,15 +65,16 @@
             </span>
             {% if page_obj.has_next and request.GET.search %}
                 <li><a href="{{ request.get_full_path }}&page={{ page_obj.next_page_number }}"
-                       class="btn-page-link"
-                       data-page="{{ request.get_full_path }}&page={{ page_obj.next_page_number }}">Next </a>
+                       class="btn"
+                       data-page="{{ request.get_full_path }}&page={{ page_obj.next_page_number }}">Next &#10095;</a>
                 </li>
             {% elif page_obj.has_next %}
-                <li><a href="?page={{ page_obj.next_page_number }}" class="btn-page-link"
-                       data-page="?page={{ page_obj.next_page_number }}">Next </a></li>
+                <li><a href="?page={{ page_obj.next_page_number }}" class="btn"
+                       data-page="?page={{ page_obj.next_page_number }}">Next &#10095;</a></li>
             {% endif %}
         {% endif %}
         </ul>
         </div>
-    </main>
+
+    </section>
 {% endblock content %}
