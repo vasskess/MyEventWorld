@@ -21,7 +21,7 @@
             {% for event in events %}
                 <article class="event-card">
                     <div class="event-img-container">
-                        <img src="{{ event.get_event_avatar }}" class="event-img" alt=""/>
+                        <img src="{{ event.get_event_avatar }}" class="event-img" alt="Event Image"/>
                         <p class="event-date">{{ event.created|my_filter }}</p>
                     </div>
                     <div class="event-info">
@@ -33,7 +33,7 @@
                             <p>{{ event.event_description|truncatechars:30 }}</p>
                         </div>
                         <div class="event-footer"><p>
-                            <span>{{ event.event_category }}</span>
+                            <span>Category: {{ event.event_category }}</span>
                         </p>
                             <p>{{ tag }}</p>
                         </div>

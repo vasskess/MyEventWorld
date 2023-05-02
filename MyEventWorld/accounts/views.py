@@ -43,7 +43,7 @@ class UsersList(ListView):
 
 class UserDetails(DetailView):
     model = EventProfile
-    template_name = ""
+    template_name = "accounts/profile.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

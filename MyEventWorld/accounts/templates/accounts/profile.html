@@ -1,0 +1,83 @@
+{% extends "common_stuff/base.html" %}
+
+{% block content %}
+    <section class="section-center profile">
+        <div class="profile-card">
+            <div class="profile-img">
+                <img class="profile-photo"
+                     src="{{ eventprofile.get_profile_avatar }}" alt="Profile Image"/>
+            </div>
+            <div class="profile-info">
+                <h2>{{ eventprofile.get_user_username }}</h2>
+                {{ eventprofile.gender }}
+                <h5>{% if eventprofile.age %}
+                    {{ eventprofile.age }} years old<br>
+                {% endif %}
+                </h5>
+                <p>{% if eventprofile.first_name %}
+                    {{ eventprofile.first_name }}
+                {% endif %}
+                    {% if eventprofile.last_name %}
+                        {{ eventprofile.last_name }}
+                    {% endif %}</p>
+                <p>{% if eventprofile.location %}
+                    <h4> Based in {{ eventprofile.location }}</h4>
+                {% endif %}
+            </div>
+            <div class="profile-about">
+                <h2 class="about-title">About Me</h2>
+                <p class="about">
+                    {% if eventprofile.about_me %}
+                        {{ eventprofile.about_me }}
+                    {% else %}
+                        No additional info added
+                    {% endif %}
+                </p>
+            </div>
+            <div class="profile-interests">
+                <h3 class="interests-title">Interests</h3>
+                <div class="interests">
+                    {% for interest in eventprofile.interest_set.all %}
+                        <h4>{{ interest }}</h4>
+                        <p>{{ interest.description }}</p>
+                    {% empty %}
+                        <p>No Interests added yet</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="profile-event-title">
+            <h3>Events</h3>
+        </div>
+        <div class="profile-events">
+            {% if eventprofile.event_set.all %}
+                {% for event in eventprofile.event_set.all %}
+                    <div class="profile-event-card">
+                        <div class="event-img-container">
+                            <a href="{% url "event-details" event.pk %}"><img
+                                    class="event-img" src="{{ event.get_event_avatar }}"
+                                    alt="Event image"/></a>
+
+                        </div>
+                        <div class="event-info">
+                            <div class="event-title">
+                                <h4><a href="{% url "event-details" event.pk %}">{{ event.title|truncatechars:15 }}</a>
+                                </h4>
+                            </div>
+                            <div class="event-desc">
+                                <p>{{ event.event_description|truncatechars:30 }}</p>
+                            </div>
+                            <div class="event-footer">
+                                <p><span>{{ event.event_category }}</span></p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p class="no-event">
+                    There's no Events added
+                </p>
+            {% endif %}
+        </div>
+    </section>>
+{% endblock content %}

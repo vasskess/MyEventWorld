@@ -36,7 +36,7 @@
     --clr-white: #fff;
     --ff-primary: "Lato", sans-serif;
     --transition: all 0.3s linear;
-    --spacing: 0.25rem;
+    --spacing: 0.1rem;
     --radius: 0.5rem;
     --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -93,6 +93,7 @@ h4 {
 
 p {
     margin-bottom: 1.25rem;
+    letter-spacing: var(--spacing);
     color: var(--clr-grey-5);
 }
 
@@ -407,7 +408,7 @@ p {
 }
 
 .event-img {
-    height: 18rem;
+    height: 15rem;
     object-fit: cover;
 }
 
@@ -496,7 +497,7 @@ p {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-.btn--sub, .btn-page {
+.btn, .btn-page {
     border-radius: 0.5rem;
 }
 
@@ -512,5 +513,86 @@ p {
     .pagination > ul {
         flex-direction: column;
         align-items: center;
+    }
+}
+
+/*-------------
+    Profile
+-------------*/
+
+.profile-card {
+    padding-top: 4rem;
+    margin-top: 4rem;
+    display: flex;
+    align-content: center;
+    /*grid-template-columns: 1fr 1fr 1fr 1fr;*/
+    transition: var(--transition);
+    background: var(--clr-grey-10);
+    box-shadow: var(--light-shadow);
+    margin-bottom: 2rem;
+    border-radius: 2rem;
+    overflow: hidden;
+}
+
+@media screen and (min-width: 320px) {
+    .profile {
+        min-height: calc(100vh - 11rem);
+        display: grid;
+        place-items: center;
+        text-align: start;
+        justify-content: center;
+    }
+
+    .profile-card {
+        max-width: 90%;
+        margin-top: 7rem;
+    }
+
+    .edit-buttons {
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .profile-photo {
+        height: 15rem;
+        object-fit: cover;
+    }
+
+    .profile-card, .profile-img, .profile-info, .profile-about, .profile-interests {
+        padding: 1rem 2rem;
+        flex-wrap: wrap;
+    }
+
+    .profile-event-title {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+
+    .profile-events {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+        flex-direction: column;
+    }
+
+    .profile-event-card {
+        transition: var(--transition);
+        background: var(--clr-grey-10);
+        box-shadow: var(--light-shadow);
+        margin-bottom: 2rem;
+        border-radius: 2rem;
+        overflow: hidden;
+    }
+
+
+    .no-event {
+        color: var(--clr-primary-1);
+        background: var(--clr-grey-10);
+        padding: 1rem 2rem;
+        border-radius: 2rem;
+        font-size: 3rem;
     }
 }
