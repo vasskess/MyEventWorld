@@ -1,0 +1,98 @@
+{% extends "common_stuff/base.html" %}
+
+{% block content %}
+    <section class="section">
+        <div class="section-title">
+            <h2><span>connect with event creators</span> from around the world</h2>
+        </div>
+        <div class="search-section">
+            <div class="search-items">
+                <form class="form" action="{% url "users-list" %}" method="get">
+                    <div class="form-field">
+                        <label for="form-search">Search By Event Creator </label>
+                        <input class="text-input" id="form-search" type="text" name="search"
+                               placeholder="Search by Event Title"/>
+                    </div>
+                    <input class="search-input" type="submit" value="Search"/>
+                </form>
+            </div>
+        </div>
+        <div class="section-center creators-center">
+            {% for profile in profiles %}
+                <div class="creator-card">
+                    <a href="{% url "user-details" profile.pk %}">
+                        <div class="creator-profile">
+                            <img class="creator-avatar img" src="{{ profile.get_profile_avatar }}"
+                                 alt="Profile Avatar"/>
+                            <div class="creator-info">
+                                <h4>{{ profile.get_user_username }}</h4>
+                                <h4>{% if profile.first_name %}
+                                    {{ profile.first_name }}
+                                {% endif %}
+                                    {% if profile.last_name %}
+                                        {{ profile.last_name }}
+                                    {% endif %}
+                                </h4>
+                                <h5>
+                                    {{ profile.gender }}
+                                </h5>
+                                <h5>
+                                    {% if profile.age %}
+                                        {{ profile.age }} years old
+                                    {% endif %}
+                                </h5>
+                                <h5>
+                                    {% if profile.location %}
+                                        {{ profile.location }}
+                                    {% else %}
+                                    {% endif %}
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="creator-interests">
+                            {% for interest in profile.interest_set.all %}
+                                <h5>
+                                    {{ interest }}
+                                </h5>
+                            {% endfor %}
+
+                        </div>
+                    </a>
+                </div>
+            {% empty %}
+                <div class="search-info">
+                    <h1>There is no matches for your search</h1>
+                </div>
+            {% endfor %}
+        </div>
+        {% if is_paginated %}
+            <div class="pagination">
+            <ul class="container">
+            {% if page_obj.has_previous and request.GET.search %}
+                <li><a href="{{ request.get_full_path }}&page={{ page_obj.previous_page_number }}"
+                       class="btn"
+                       data-page="{{ request.get_full_path }}&page={{ page_obj.previous_page_number }}">&#10094;
+                    Prev</a></li>
+            {% elif page_obj.has_previous %}
+                <li><a href="?page={{ page_obj.previous_page_number }}" class="btn"
+                       data-page="{{ request.get_full_path }}&page={{ page_obj.previous_page_number }}">&#10094;
+                    Prev</a></li>
+            {% endif %}
+
+            <span class="btn-page">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+            </span>
+            {% if page_obj.has_next and request.GET.search %}
+                <li><a href="{{ request.get_full_path }}&page={{ page_obj.next_page_number }}"
+                       class="btn"
+                       data-page="{{ request.get_full_path }}&page={{ page_obj.next_page_number }}">Next &#10095;</a>
+                </li>
+            {% elif page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}" class="btn"
+                       data-page="?page={{ page_obj.next_page_number }}">Next &#10095;</a></li>
+            {% endif %}
+        {% endif %}
+        </ul>
+        </div>
+    </section>
+{% endblock content %}

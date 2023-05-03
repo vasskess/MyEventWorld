@@ -21,7 +21,7 @@ from MyEventWorld.accounts.models import EventProfile
 class UsersList(ListView):
     model = EventProfile
     context_object_name = "profiles"
-    template_name = ""
+    template_name = "accounts/profiles.html"
     paginate_by = 3
 
     def get_queryset(self):
