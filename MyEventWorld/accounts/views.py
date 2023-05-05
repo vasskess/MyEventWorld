@@ -21,7 +21,7 @@ from MyEventWorld.accounts.models import EventProfile
 class UsersList(ListView):
     model = EventProfile
     context_object_name = "profiles"
-    template_name = "accounts/profiles.html"
+    template_name = "accounts/event_creators.html"
     paginate_by = 3
 
     def get_queryset(self):
@@ -43,7 +43,7 @@ class UsersList(ListView):
 
 class UserDetails(DetailView):
     model = EventProfile
-    template_name = "accounts/profile.html"
+    template_name = "accounts/profile_details.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -55,7 +55,7 @@ class UserDetails(DetailView):
 
 class UserProfile(LoginRequiredMixin, UserOwnershipMixin, DetailView):
     model = EventProfile
-    template_name = ""
+    template_name = "accounts/profile.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

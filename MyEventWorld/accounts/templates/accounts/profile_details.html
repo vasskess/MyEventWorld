@@ -6,16 +6,6 @@
             <div class="profile-img">
                 <img class="profile-photo"
                      src="{{ eventprofile.get_profile_avatar }}" alt="Profile Image"/>
-                {% if is_owner %}
-                    <a class="btn edit-btn"
-                       href="#">
-                        <i class="fa-solid fa-pen-nib"></i>
-                        Edit Profile</a>
-                    <a class="btn delete-btn"
-                       href="#">
-                        <i class="fa-solid fa-trash"></i>
-                        Delete Profile</a>
-                {% endif %}
             </div>
             <div class="profile-info">
                 <h2>{{ eventprofile.get_user_username }}</h2>
@@ -46,40 +36,18 @@
             </div>
             <div class="profile-interests">
                 <h3 class="interests-title">Interests</h3>
-                {% if is_owner %}
-                    <a class="btn add-btn"
-                       href="#">
-                        <i class="fa-solid fa-plus"></i>
-                        Add Interest</a>
-                {% endif %}
-                <div class="interests">
-                    {% if is_owner %}
-                        {% for interest in eventprofile.interest_set.all %}
-                            <div class="interest">
-                                <h4>{{ interest }}</h4>
-                                <p>{{ interest.description }}</p>
-                                <a class="btn interest-edit-btn"
-                                   href="#">
-                                    <i class="fa-solid fa-pen-nib"></i>
-                                    Edit Interest</a>
-                                <a class="btn interest-delete-btn"
-                                   href="#">
-                                    <i class="fa-solid fa-trash"></i>
-                                    Delete Interest</a>
-                            </div>
-                        {% empty %}
-                            <p>No Interests added yet</p>
-                        {% endfor %}
-                    {% endif %}
+                <div class=""> {# TODO think how to look this here ! #}
+                    {% for interest in eventprofile.interest_set.all %}
+                        <h4>{{ interest }}</h4>
+                        <p>{{ interest.description }}</p>
+                    {% empty %}
+                        <p>No Interests added yet</p>
+                    {% endfor %}
                 </div>
             </div>
         </div>
         <div class="profile-event-title">
             <h3>Events</h3>
-            <a class="btn edit-btn"
-               href="#">
-                <i class="fa-solid fa-square-plus"></i>
-                Create Event</a>
         </div>
 
     </section>>
@@ -104,14 +72,6 @@
                         <div class="event-footer">
                             <p><span>{{ event.event_category }}</span></p>
                         </div>
-                        <a class="btn edit-btn"
-                           href="#"">
-                            <i class="fa-solid fa-pen-nib"></i>
-                            Edit</a>
-                        <a class="btn delete-btn"
-                           href="#">
-                            <i class="fa-solid fa-trash"></i>
-                            Delete</a>
                     </div>
                 </div>
             {% endfor %}
