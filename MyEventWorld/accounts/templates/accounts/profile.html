@@ -8,11 +8,11 @@
                      src="{{ eventprofile.get_profile_avatar }}" alt="Profile Image"/>
                 {% if is_owner %}
                     <a class="btn edit-btn"
-                       href="#">
+                       href="{% url "profile-edit" eventprofile.pk %}">
                         <i class="fa-solid fa-pen-nib"></i>
                         Edit Profile</a>
                     <a class="btn delete-btn"
-                       href="#">
+                       href="{% url "profile-delete" eventprofile.pk %}">
                         <i class="fa-solid fa-trash"></i>
                         Delete Profile</a>
                 {% endif %}
@@ -105,7 +105,7 @@
                             <p><span>{{ event.event_category }}</span></p>
                         </div>
                         <a class="btn edit-btn"
-                           href="#"">
+                           href="#">
                             <i class="fa-solid fa-pen-nib"></i>
                             Edit</a>
                         <a class="btn delete-btn"

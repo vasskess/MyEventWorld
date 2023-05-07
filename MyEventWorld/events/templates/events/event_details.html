@@ -1,0 +1,73 @@
+{% extends "common_stuff/base.html" %}
+{% load my_date_filter %}
+
+{% block content %}
+    <section class="section-center single-event-info">
+        <img class="single-event-img" src="{{ event.get_event_avatar }}" alt="Event Avatar"/>
+        <div class="event-info">
+            <div class="event-creator">
+                <a href="{% url "user-details" event.creator.pk %}">
+                    {{ event.creator }}
+                </a>
+            </div>
+            <div class="event-title">
+                <h4>{{ event.title|truncatechars:15 }}</h4>
+            </div>
+            <div class="event-desc">
+                <p>{{ event.event_description|truncatechars:30 }}</p>
+            </div>
+            <div class="event-footer"><p>
+                <span>Category: {{ event.event_category }}</span>
+            </p>
+                <p>{{ tag }}</p>
+            </div>
+        </div>
+        <h3>Feedback</h3>
+        <h5>
+            {{ all_reviews.review_title }}
+        </h5>
+        {% if request.user.eventprofile.pk in event.reviewers %}
+            <p>You have already submitted your review for this event</p>
+        {% elif request.user.eventprofile == event.creator %}
+            <p>You cannot review your own event</p>
+        {% elif request.user.is_authenticated %}
+            <form class="review-form" method="POST" action="{% url "event-details" event.pk %}">
+                {% csrf_token %}
+                <div class="review-form-field">
+                    <h5 class="help-text">
+                        {{ form.review_text.help_text }}
+                    </h5>
+                    <div class="review-title">
+                        <h4>Review Title</h4>{{ form.review_title }}
+                    </div>
+                    <div class="review-text">
+                        <h4>Review Text</h4>{{ form.review_text }}
+                    </div>
+                    {% for error in field.errors %}
+                        <div class="alert alert--error">{{ error }}</div>
+                    {% endfor %}
+                </div>
+                <input class="btn" type="submit" value="Leave Review"/>
+            </form>
+        {% else %}
+            <a href="{% url "login" %}">Please login to leave a review</a>
+        {% endif %}
+        {% for review in all_reviews %}
+            <div class="reviews">
+                <a href="{% url "user-details" review.review_creator.pk %}">
+                    <img class="creator-avatar img review"
+                         src="{{ review.review_creator.get_profile_avatar }}"
+                         alt="Profile Avatar"/></a>
+                <div class="review-details">
+                    <h4>Reviewed by
+                        <a href="{% url "user-details" review.review_creator.pk %}"
+                           class="review-author">{{ review.review_creator }}</a>
+                        - {{ review.date_created|my_filter }}
+                    </h4>
+                    <p class="review-info">{{ review.review_title }}</p>
+                    <p class="review-info">{{ review.review_text }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+{% endblock content %}

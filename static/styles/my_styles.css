@@ -710,3 +710,250 @@ p {
         gap: 2rem;
     }
 }
+
+/*--------------------
+    Event Details
+--------------------*/
+
+.single-event-info {
+    padding: 1.25rem 1.5rem 1rem 1.5rem;
+    margin-top: 7rem;
+    background: var(--clr-grey-10);
+    border-radius: 2rem;
+}
+
+.single-event-info a {
+    color: var(--clr-primary-1);
+}
+
+.single-event-info a:hover {
+    color: var(--clr-primary-7);
+}
+
+.single-event-img {
+    object-fit: cover;
+    border-radius: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.event-creator {
+    margin-bottom: 1rem;
+}
+
+.event-creator a {
+    color: var(--clr-primary-5);
+}
+
+.reviews {
+    padding: 1.25rem 1.5rem 1rem 1.5rem;
+    border: 0.3rem solid var(--clr-primary-1);
+    border-radius: 2rem;
+    margin-bottom: 1rem;
+}
+
+/*-----------
+    Forms
+-----------*/
+
+.review-form {
+    margin-bottom: 1rem;
+}
+
+.review-form-field, .edit-form-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.help-text {
+    color: red;
+    margin-top: 0;
+    font-size: 1.2rem;
+}
+
+.review-title {
+    margin-bottom: 1rem;
+}
+
+.review-title h4, .review-text h4 {
+    margin-bottom: 0.5rem;
+}
+
+#id_review_title, #id_review_text {
+    width: 100%;
+    resize: none;
+    border-radius: 0.5rem;
+    border: 0.1rem solid var(--clr-primary-1);
+    padding: 0.3rem;
+    background: var(--clr-grey-9);
+}
+
+.creator-avatar.img.review {
+    margin-bottom: 1rem;
+}
+
+.review-details {
+    padding: 0.2rem;
+}
+
+.review-author {
+    color: var(--clr-primary-5);
+}
+
+/*------------------
+    Edit Profile
+------------------*/
+
+@media screen and (min-width: 318px) {
+
+    .profile-edit-form {
+        max-width: 90%;
+    }
+
+    .edit-profile-section {
+        margin-top: 7rem;
+        background: var(--clr-white);
+        border: 0.3rem solid var(--clr-primary-1);
+        border-radius: 2rem;
+        max-width: 50rem;
+    }
+
+    .edit-profile-card, .profile-login-register-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem 2rem;
+    }
+
+    #id_about_me {
+        resize: none;
+    }
+
+    #id_about_me:focus {
+        background: var(--clr-grey-9);
+    }
+
+    .edit-form-field > input:focus {
+        border: var(--clr-primary-1);
+        background: var(--clr-grey-9);
+    }
+
+    .edit-form-field > label {
+        margin-bottom: 0.2rem;
+    }
+
+    .back-btn {
+        margin-bottom: 1rem;
+    }
+}
+
+/*------------------
+    Delete Profile
+------------------*/
+
+@media screen and (min-width: 318px) {
+
+    .delete-profile-section {
+        margin-top: 7rem;
+        background: var(--clr-white);
+        border: 0.3rem solid var(--clr-primary-1);
+        border-radius: 2rem;
+        padding-bottom: 0;
+        max-width: 50rem;
+    }
+
+    .profile-delete-form > h3 {
+        margin-bottom: 1rem;
+    }
+}
+
+/*------------------
+    Delete Profile
+------------------*/
+
+@media screen and (min-width: 318px) {
+
+    .login-register-section {
+        margin-top: 7rem;
+        background: var(--clr-white);
+        border: 0.3rem solid var(--clr-primary-1);
+        border-radius: 2rem;
+        padding-bottom: 0;
+        max-width: 40rem;
+    }
+
+    .register-form-field {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .login-form-field {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .login-form-field > label {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .login-form-field > input {
+        margin-bottom: 1rem;
+    }
+
+    .login-form-field > label > input, .register-form-field > input {
+        margin-top: 0.5rem;
+    }
+
+    .btn-forgot {
+        background: var(--clr-grey-1);
+    }
+
+    .btn-forgot:hover {
+        color: var(--clr-grey-5);
+        background: var(--clr-grey-8);
+    }
+}
+
+/*------------------
+    Alerts   TODO - This can look better for sure !
+------------------*/
+
+@media screen and (min-width: 318px) {
+    .alert {
+        display: flex;
+        justify-content: center;
+        margin: 7rem auto;
+    }
+
+    .alert,
+    .alert > .alert__message {
+        color: red;
+        font-size: 0.8rem;
+    }
+
+    .alert.alert--error,
+    .alert.alert--error > .alert__message {
+        padding-top: 0.5rem;
+        max-width: 30rem;
+        background: var(--clr-white);
+        border-radius: 2rem;
+        color: red;
+    }
+
+    .alert.alert--success,
+    .alert.alert--success > .alert__message {
+        padding-top: 0.5rem;
+        max-width: 30rem;
+        background: var(--clr-white);
+        border-radius: 2rem;
+        color: green;
+    }
+}

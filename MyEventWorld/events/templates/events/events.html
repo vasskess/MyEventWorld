@@ -21,7 +21,9 @@
             {% for event in events %}
                 <article class="event-card">
                     <div class="event-img-container">
-                        <img src="{{ event.get_event_avatar }}" class="event-img" alt="Event Image"/>
+                        <a href="{% url "event-details" event.pk %}" class="event">
+                            <img src="{{ event.get_event_avatar }}" class="event-img" alt="Event Image"/>
+                        </a>
                         <p class="event-date">{{ event.created|my_filter }}</p>
                     </div>
                     <div class="event-info">

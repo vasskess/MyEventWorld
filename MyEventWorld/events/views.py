@@ -38,7 +38,7 @@ class EventsList(ListView):
 
 class EventDetails(DetailView):
     model = Event
-    template_name = ""
+    template_name = "events/event_details.html"
 
     def post(self, request, *args, **kwargs):
         form = CreateReviewForm(request.POST)

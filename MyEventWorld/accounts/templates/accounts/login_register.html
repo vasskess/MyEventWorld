@@ -1,0 +1,91 @@
+{% extends "common_stuff/base.html" %}
+{% load static %}
+
+{% block content %}
+    {% if page == "register" %}
+        <section class="section-center login-register-section">
+            <div class="profile-login-register-card">
+                    <a href="/">
+                        <img src="{% static "images/calendar.svg" %}" alt="Calendar Logo"/>
+                    </a>
+                    <h3>Register</h3>
+                    <p>Create a new Event Creator account</p>
+
+                <form method="post" action="{% url "register" %}" class="login-register-form" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    {% for field in form %}
+                        <div class="register-form-field">
+                            <label for="formInput#text">{{ field.label }}</label>
+                            {{ field }}
+                            {% for error in field.errors %}
+                                <div class="alert alert--error">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+
+                    <div class="register-form-field">
+                        <input class="btn" type="submit" value="Sign  In"/>
+                    </div>
+                </form>
+                <div class="register-form-field">
+                    <p>Already have an Account?</p>
+                    <a class="btn" href="{% url "login" %}">Log In</a>
+                </div>
+            </div>
+        </section>
+
+    {% else %}
+
+        <section class="section-center  login-register-section">
+            <div class="profile-login-register-card">
+                    <a href="/">
+                        <img src="{% static "images/calendar.svg" %}" alt="Calendar Logo"/>
+                    </a>
+                    <h3>Account Login</h3>
+                    <p>Hello Event Creator, Welcome Back!</p>
+
+                <form method="POST" action="{% url "login" %}" class="login-register-form">
+                    {% csrf_token %}
+                    {% if form.non_field_errors %}
+                        {% for error in form.non_field_errors %}
+                            <div class="alert alert--error">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <div class="login-form-field">
+                        <label for="formInput#text">Username
+                        <input
+                                class="input input--text"
+                                id="formInput#text"
+                                type="text"
+                                name="username"
+                                placeholder="Enter your username..."
+                        /></label>
+                    </div>
+
+                    <div class="login-form-field">
+                        <label for="formInput#password">Password
+                        <input
+                                class="input input--password"
+                                id="formInput#passowrd"
+                                type="password"
+                                name="password"
+                                placeholder="*******"
+                        /></label>
+                    </div>
+
+                    <div class="login-form-field">
+                        <input class="btn" type="submit" value="Log In"/>
+                        <a class="btn btn-forgot" href="{% url "reset_password" %}">Forget Password?</a>
+                    </div>
+                </form>
+
+                <div class="login-form-field">
+                    <p>Don’t have an Account?</p>
+                    <a class="btn" href="{% url "register" %}">Sign Up</a>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+{% endblock content %}

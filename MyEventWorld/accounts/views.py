@@ -66,7 +66,7 @@ class UserProfile(LoginRequiredMixin, UserOwnershipMixin, DetailView):
 
 
 class UserCreate(NotLoginRequiredMixin, CreateView):
-    template_name = ""
+    template_name = "accounts/login_register.html"
     form_class = ProfileCreationForm
 
     def form_valid(self, form):
@@ -90,7 +90,7 @@ class UserCreate(NotLoginRequiredMixin, CreateView):
 class UserProfileEdit(LoginRequiredMixin, UserOwnershipMixin, UpdateView):
     model = EventProfile
     form_class = ProfileEditForm
-    template_name = ""
+    template_name = "accounts/profile_edit.html"
 
     def get_success_url(self):
         return reverse_lazy(
@@ -104,7 +104,7 @@ class UserProfileEdit(LoginRequiredMixin, UserOwnershipMixin, UpdateView):
 class UserProfileDelete(LoginRequiredMixin, UserOwnershipMixin, DeleteView):
     model = EventProfile
     form_class = ProfileDeleteForm
-    template_name = ""
+    template_name = "accounts/profile_delete.html"
 
     def get_success_url(self):
         messages.success(self.request, "User was deleted successfully")
@@ -112,7 +112,7 @@ class UserProfileDelete(LoginRequiredMixin, UserOwnershipMixin, DeleteView):
 
 
 class UserLogin(NotLoginRequiredMixin, LoginView):
-    template_name = ""
+    template_name = "accounts/login_register.html"
     form_class = UserLoginForm
 
     def get_context_data(self, **kwargs):
@@ -121,6 +121,7 @@ class UserLogin(NotLoginRequiredMixin, LoginView):
         return context
 
     def get_success_url(self):
+        messages.error(self.request, "User was logged successfully")  # TODO - Think if i want this here !
         return reverse_lazy("events-list")
 
 
