@@ -1,5 +1,6 @@
 from django.forms import ModelForm
 
+from MyEventWorld.core.mixins.form_fields_mixin import DisabledFieldsMixin
 from MyEventWorld.events.models import *
 
 
@@ -22,7 +23,7 @@ class EditEventForm(BaseEventForm):
     pass
 
 
-class DeleteEventForm(BaseEventForm):
+class DeleteEventForm( DisabledFieldsMixin, BaseEventForm):
     pass
 
 

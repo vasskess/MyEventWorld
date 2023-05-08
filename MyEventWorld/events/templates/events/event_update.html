@@ -1,0 +1,23 @@
+{% extends "common_stuff/base.html" %}
+
+{% block content %}
+        <section class="section-center edit-profile-section">
+                <div class="edit-profile-card">  {# TODO make this classes common for all #}
+                    <a class="btn back-btn" href="{% url "profile-details" event.creator.pk %}">Back</a>
+                        <form class="profile-edit-form" method="post" action="{% url "event-update" event.pk %}"
+                              enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {% for field in form %}
+                                <div class="edit-form-field">
+                                    <label>{{ field.label }}</label>
+                                    {{ field }}
+                                    {% for error in field.errors %}
+                                        <div class="alert alert--error">{{ error }}</div>
+                                    {% endfor %}
+                                </div>
+                            {% endfor %}
+                            <input class="btn" type="submit" value="Update Event"/>
+                        </form>
+                </div>
+        </section>
+{% endblock content %}

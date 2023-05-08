@@ -77,15 +77,15 @@
         <div class="profile-event-title">
             <h3>Events</h3>
             <a class="btn edit-btn"
-               href="#">
+               href="{% url "event-create" %}">
                 <i class="fa-solid fa-square-plus"></i>
                 Create Event</a>
         </div>
 
     </section>>
     <div class="profile-events">
-        {% if eventprofile.event_set.all %}
-            {% for event in eventprofile.event_set.all %}
+        {% if all_events %}
+            {% for event in all_events %}
                 <div class="profile-event-card">
                     <div class="event-img-container">
                         <a href="{% url "event-details" event.pk %}"><img
@@ -105,11 +105,11 @@
                             <p><span>{{ event.event_category }}</span></p>
                         </div>
                         <a class="btn edit-btn"
-                           href="#">
+                           href="{% url "event-update" event.pk %}">
                             <i class="fa-solid fa-pen-nib"></i>
                             Edit</a>
                         <a class="btn delete-btn"
-                           href="#">
+                           href="{% url "event-delete" event.pk %}">
                             <i class="fa-solid fa-trash"></i>
                             Delete</a>
                     </div>

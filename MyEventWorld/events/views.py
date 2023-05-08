@@ -70,7 +70,7 @@ class EventCreate(LoginRequiredMixin, CreateView):
     model = Event
     form_class = CreateEventForm
     context_object_name = "event"
-    template_name = ""
+    template_name = "events/event_create.html"
 
     def form_valid(self, form):
         form.instance.creator = EventProfile.objects.get(user_id=self.request.user.pk)
@@ -94,7 +94,7 @@ class EventUpdate(LoginRequiredMixin, EventOwnershipMixin, UpdateView):
     model = Event
     form_class = EditEventForm
     context_object_name = "event"
-    template_name = ""
+    template_name = "events/event_update.html"
 
     def get_success_url(self):
         return reverse_lazy(
@@ -108,7 +108,7 @@ class EventUpdate(LoginRequiredMixin, EventOwnershipMixin, UpdateView):
 class EventDelete(LoginRequiredMixin, EventOwnershipMixin, DeleteView):
     model = Event
     form_class = DeleteEventForm
-    template_name = ""
+    template_name = "events/event_delete.html"
 
     def get_success_url(self):
         return reverse_lazy(
