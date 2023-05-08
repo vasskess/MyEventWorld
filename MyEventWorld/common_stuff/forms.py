@@ -1,6 +1,7 @@
 from django.forms import ModelForm
 
 from MyEventWorld.common_stuff.models import *
+from MyEventWorld.core.mixins.form_fields_mixin import DisabledFieldsMixin
 
 
 class BaseInterestForm(ModelForm):
@@ -31,5 +32,5 @@ class CreateMessageForm(BaseMessageForm):
     pass
 
 
-class DeleteMessageForm(BaseMessageForm):
+class DeleteMessageForm(DisabledFieldsMixin, BaseMessageForm):
     pass

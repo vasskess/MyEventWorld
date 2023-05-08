@@ -23,6 +23,9 @@
                 <p>{% if eventprofile.location %}
                     <h4> Based in {{ eventprofile.location }}</h4>
                 {% endif %}
+            {% if not owner %}
+            <a href="{% url "message-create" eventprofile.pk %}" class="btn">Send Message</a>
+            {% endif %}
             </div>
             <div class="profile-about">
                 <h2 class="about-title">About Me</h2>

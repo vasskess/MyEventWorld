@@ -1,0 +1,25 @@
+{% extends "common_stuff/base.html" %}
+{% load my_date_filter %}
+
+{% block content %}    {# TODO - Make a better styles for this template #}
+    <section class="inbox">
+        <div class="content-box-msg">
+            <div class="messages">
+                {% if is_owner %}
+                    <a class="btn" href="{% url "message-inbox" user.eventprofile.pk %}"
+                       type="submit">Back</a>
+                    <a class="btn" href="{% url "message-delete" messages_received.pk %}"
+                       type="submit">Delete</a>
+                    <h2 class="message-subject">{{ messages_received.topic }}</h2>
+                    <a href="{% url "user-details" messages_received.sender.pk %}" class="message__author">
+                        {{ messages_received.sender }}</a>
+                    <span class="message-author">{{ messages_received.sender.user.email }}</span>
+                    <p class="message-date">{{ messages_received.date_created|my_filter }}</p>
+                    <div class="message-body">
+                        {{ messages_received.message_text|linebreaksbr }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{% endblock content %}

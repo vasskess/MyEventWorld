@@ -1,0 +1,29 @@
+{% extends "common_stuff/base.html" %}
+{% load my_date_filter %}
+
+{% block content %}
+    <section class="inbox">  {# TODO - Think about a notification sign in the Navbar - Inbox ! #}
+        <div class="content-box-msg">
+            <h3 class="inbox-title">New Messages (<span>{{ unread }}</span>)</h3>
+            <ul class="messages">
+                {% for message in messages_received %}
+                    {% if message.read == False %}
+                        <li class="message message-unread">
+                            {% else %}
+                        <li class="message">
+                    {% endif %}
+                <a href="{% url "message-read" message.pk %}">
+                    {% if message.sender %}
+                        <span class="message-author">{{ message.sender }}</span>
+                    {% else %}
+                        <span class="message-author">{{ message.name }}</span>
+                    {% endif %}
+                    <span class="message-subject">{{ message.topic }}</span>
+                    <span class="message-date">{{ message.date_created|my_filter }}</span>
+                </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+{% endblock content %}

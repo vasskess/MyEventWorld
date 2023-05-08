@@ -19,7 +19,7 @@
                 </li>
                 {% if request.user.is_authenticated %}
                     <li>
-                        <a href="#" class="nav-link scroll-link">Inbox</a>
+                        <a href="{% url "message-inbox" user.pk %}" class="nav-link scroll-link">Inbox</a>
                     </li>
                     <li>
                         <a href="{% url "profile-details" user.pk %}" class="nav-link scroll-link">MyProfile</a>

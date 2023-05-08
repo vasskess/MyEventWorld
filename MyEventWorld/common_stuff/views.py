@@ -69,7 +69,7 @@ class InterestDelete(LoginRequiredMixin, InterestOwnershipMixin, DeleteView):
 
 class MessageInbox(LoginRequiredMixin, ListView):
     model = Message
-    template_name = ""
+    template_name = "common_stuff/inbox.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -86,7 +86,7 @@ class MessageInbox(LoginRequiredMixin, ListView):
 class CreateMessage(LoginRequiredMixin, CreateView):
     model = Message
     form_class = CreateMessageForm
-    template_name = ""
+    template_name = "common_stuff/message_create.html"
 
     def form_valid(self, form):
         form.instance.sender = EventProfile.objects.get(user_id=self.request.user.pk)
@@ -97,14 +97,14 @@ class CreateMessage(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        messages.info(self.request, "Message sent successfully")
+        messages.error(self.request, "Message sent successfully")
         return reverse_lazy("users-list")
 
 
 class ReadMessage(LoginRequiredMixin, MessageOwnershipMixin, DetailView):
     model = Message
     context_object_name = "message"
-    template_name = ""
+    template_name = "common_stuff/messages.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -121,7 +121,7 @@ class DeleteMessage(LoginRequiredMixin, MessageOwnershipMixin, DeleteView):
     model = Message
     form_class = DeleteMessageForm
     context_object_name = "message"
-    template_name = ""
+    template_name = "common_stuff/message_delete.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
