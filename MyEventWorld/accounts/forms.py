@@ -7,6 +7,7 @@ from django.forms import ModelForm
 from MyEventWorld.core.helpers.gender_types import Genders
 
 from MyEventWorld.accounts.models import EventProfile
+from MyEventWorld.core.mixins.form_fields_mixin import DisabledFieldsMixin
 
 UserModel = get_user_model()
 
@@ -63,7 +64,7 @@ class ProfileEditForm(ModelForm):
         exclude = ("user",)
 
 
-class ProfileDeleteForm(ModelForm):
+class ProfileDeleteForm(DisabledFieldsMixin, ModelForm):
     class Meta:
         model = EventProfile
         fields = "__all__"

@@ -1,0 +1,33 @@
+/* TODO - This can look better for sure ! */
+
+@media screen and (min-width: 318px) {
+    .alert {
+        display: flex;
+        justify-content: center;
+        margin: 7rem auto;
+    }
+
+    .log-reg-error{
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .alert.alert--error,
+    .alert.alert--error > .alert__message {
+        padding-top: 0.5rem;
+        max-width: 30rem;
+        background: var(--clr-white);
+        border-radius: 2rem;
+        color: red;
+    }
+
+    .alert.alert--success,
+    .alert.alert--success > .alert__message {
+        padding-top: 0.5rem;
+        max-width: 30rem;
+        background: var(--clr-white);
+        border-radius: 2rem;
+        color: green;
+    }
+}

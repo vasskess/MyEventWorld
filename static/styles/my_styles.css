@@ -922,38 +922,3 @@ p {
     }
 }
 
-/*------------------
-    Alerts   TODO - This can look better for sure !
-------------------*/
-
-@media screen and (min-width: 318px) {
-    .alert {
-        display: flex;
-        justify-content: center;
-        margin: 7rem auto;
-    }
-
-    .alert,
-    .alert > .alert__message {
-        color: red;
-        font-size: 0.8rem;
-    }
-
-    .alert.alert--error,
-    .alert.alert--error > .alert__message {
-        padding-top: 0.5rem;
-        max-width: 30rem;
-        background: var(--clr-white);
-        border-radius: 2rem;
-        color: red;
-    }
-
-    .alert.alert--success,
-    .alert.alert--success > .alert__message {
-        padding-top: 0.5rem;
-        max-width: 30rem;
-        background: var(--clr-white);
-        border-radius: 2rem;
-        color: green;
-    }
-}

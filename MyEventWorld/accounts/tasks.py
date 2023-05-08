@@ -7,7 +7,7 @@ from django.conf import settings
 @shared_task
 def send_email_to_new_user(email):
     subject = f"Welcome {email} to MyEventWorld"
-    message = "Welcome to MyEventWorld. I`m delighted you`ve decided to register im my first web-site try. I hope you enjoy it and i`ll love to receive a feedback to improve my developer skills. Have Fun :)"
+    message = "Welcome to MyEventWorld. I'm delighted you've decided to register im my first web-site try. I hope you enjoy it and i'll love to receive a feedback to improve my developer skills. Have Fun :)"
 
     send_mail(
         subject,
