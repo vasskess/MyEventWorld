@@ -1,3 +1,9 @@
+{% include "common_stuff/base.html" %}
+
 {% load static %}
 
-<img src="{% static "images/404-not_found.png" %}" width="pixels" alt="Error 404"/>
+<link rel="stylesheet" href="{% static "styles/my_styles.css" %}" class="rel"/>
+
+<section class="section-center single-event-info">
+    <img src="{% static "images/404-not_found.png" %}" alt="Error 404"/>
+</section>
