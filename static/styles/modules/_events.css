@@ -1,0 +1,127 @@
+.event-card {
+    transition: var(--transition);
+    background: var(--clr-grey-10);
+    box-shadow: var(--light-shadow);
+    margin-bottom: 2rem;
+    border-radius: 2rem;
+    overflow: hidden;
+}
+
+.event-card:hover {
+    box-shadow: var(--dark-shadow);
+    transform: scale(1.02);
+}
+
+.event-img-container {
+    position: relative;
+}
+
+.event-img {
+    height: 15rem;
+    object-fit: cover;
+}
+
+.event-date {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: var(--clr-primary-8);
+    margin-bottom: 0;
+    color: var(--clr-primary-1);
+    text-transform: capitalize;
+    padding: 0.25rem 0.5rem;
+}
+
+.event-info {
+    padding: 1.25rem 1.5rem 1rem 1.5rem;
+}
+
+.event-title {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.event-title p,
+.event-title h4, .event-desc {
+    margin-bottom: 1.75rem;
+    line-height: 1.25;
+}
+
+.event-title a {
+    color: var(--clr-grey-7);
+}
+
+.event-footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.event-footer p {
+    line-height: 0;
+    margin-bottom: 0;
+    text-transform: capitalize;
+    color: var(--clr-primary-5);
+}
+
+@media screen and (min-width: 768px) {
+    .events-center {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 3rem;
+    }
+
+    .event-card {
+        flex: 0 0 calc(50% - 2rem);
+    }
+}
+
+@media screen and (min-width: 1170px) {
+    .event-card {
+        flex: 0 0 calc(33.333% - 2rem);
+    }
+}
+
+/*--------------------
+    Event Details
+--------------------*/
+
+.single-event-info {
+    padding: 1.25rem 1.5rem 1rem 1.5rem;
+    margin-top: 7rem;
+    background: var(--clr-grey-10);
+    border-radius: 2rem;
+}
+
+.single-event-info a {
+    color: var(--clr-primary-1);
+}
+
+.single-event-info a:hover {
+    color: var(--clr-primary-7);
+}
+
+.single-event-img {
+    object-fit: cover;
+    border-radius: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.event-creator {
+    margin-bottom: 1rem;
+}
+
+.event-creator a {
+    color: var(--clr-primary-5);
+}
+
+.reviews {
+    padding: 1.25rem 1.5rem 1rem 1.5rem;
+    border: 0.3rem solid var(--clr-primary-1);
+    border-radius: 2rem;
+    margin-bottom: 1rem;
+}

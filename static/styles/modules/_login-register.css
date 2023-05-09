@@ -1,0 +1,49 @@
+@media screen and (min-width: 318px) {
+
+    .login-register-section {
+        margin-top: 7rem;
+        background: var(--clr-white);
+        border: 0.3rem solid var(--clr-primary-1);
+        border-radius: 2rem;
+        padding-bottom: 0;
+        max-width: 40rem;
+    }
+
+    .register-form-field {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .login-form-field {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .login-form-field > label {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .login-form-field > input {
+        margin-bottom: 1rem;
+    }
+
+    .login-form-field > label > input, .register-form-field > input {
+        margin-top: 0.5rem;
+    }
+
+    .btn-forgot {
+        background: var(--clr-grey-1);
+    }
+
+    .btn-forgot:hover {
+        color: var(--clr-grey-5);
+        background: var(--clr-grey-8);
+    }
+}

@@ -1,0 +1,44 @@
+.review-form {
+    margin-bottom: 1rem;
+}
+
+.review-form-field, .edit-form-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.help-text {
+    color: red;
+    margin-top: 0;
+    font-size: 1.2rem;
+}
+
+.review-title {
+    margin-bottom: 1rem;
+}
+
+.review-title h4, .review-text h4 {
+    margin-bottom: 0.5rem;
+}
+
+#id_review_title, #id_review_text {
+    width: 100%;
+    resize: none;
+    border-radius: 0.5rem;
+    border: 0.1rem solid var(--clr-primary-1);
+    padding: 0.3rem;
+    background: var(--clr-grey-9);
+}
+
+.creator-avatar.img.review {
+    margin-bottom: 1rem;
+}
+
+.review-details {
+    padding: 0.2rem;
+}
+
+.review-author {
+    color: var(--clr-primary-5);
+}

@@ -1,0 +1,61 @@
+.inbox {
+    height: 90vh;
+    margin: 8rem auto;
+}
+
+.content-box-msg {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 95%;
+    max-width: 85rem;
+    margin: 0 auto;
+}
+
+.inbox-title {
+    color: var(--clr-primary-1);
+    margin: 0 auto;
+}
+
+.inbox-title span {
+    color: red;
+}
+
+.messages {
+    list-style: none;
+    background: var(--clr-white);
+    padding: 0.5rem 3rem;
+    border: 2px solid var(--clr-grey-5);
+    border-radius: 0.7rem;
+}
+
+.message {
+    padding: 2.5rem 0;
+}
+
+.message > a span {
+    font-size: 1.25rem;
+}
+
+.message.message-unread a span {
+    font-weight: 700;
+    color: green;
+}
+
+.message > a {
+    display: flex;
+    gap: 1rem;
+}
+
+.message-author,
+.message-date {
+    flex-basis: 25%;
+}
+
+.message-subject {
+    flex-basis: 50%;
+}
+
+.message-date {
+    text-align: right;
+}
