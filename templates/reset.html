@@ -1,11 +1,15 @@
-<h3>Enter new password</h3>
+{% load static %}
 
-<p>Please enter your new password twice so we can verify it .</p>
+<link rel="stylesheet" href="{% static "styles/my_styles.css" %}" class="rel"/>
 
-<br>
-
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Submit"/>
-</form>
+<section class="section-center login-register-section">
+    <div class="edit-profile-card">
+        <h3>Enter new password</h3>
+        <p>Please enter your new password twice so we can verify it .</p>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="btn" type="submit" value="Submit"/>
+        </form>
+    </div>
+</section>
