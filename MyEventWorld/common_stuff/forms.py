@@ -18,7 +18,7 @@ class EditInterestForm(BaseInterestForm):
     pass
 
 
-class DeleteInterestForm(BaseInterestForm):
+class DeleteInterestForm(DisabledFieldsMixin, BaseInterestForm):
     pass
 
 

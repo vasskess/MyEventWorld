@@ -1,0 +1,17 @@
+{% extends "common_stuff/base.html" %}
+
+{% block content %}
+    <section class="section-center delete-profile-section">
+        <div class="edit-profile-card">  {# TODO make this classes common for all #}
+            <div class="content-box">
+                    <a class="btn back-btn" href="{% url "profile-details" interest.interest_creator.pk %}">Cancel</a>
+                    <form class="profile-delete-form" method="post" action="{% url "interest-delete" interest.pk %}">
+                        {% csrf_token %}
+                        {{ form }}
+                        <h2>Are you sure you want to delete {{ interest }}</h2>
+                        <input class="btn" type="submit" value="Delete Interest"/>
+                    </form>
+                </div>
+        </div>
+    </section>
+{% endblock content %}

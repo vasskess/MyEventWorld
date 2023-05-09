@@ -48,22 +48,22 @@
                 <h3 class="interests-title">Interests</h3>
                 {% if is_owner %}
                     <a class="btn add-btn"
-                       href="#">
+                       href="{% url "interest-create" %}">
                         <i class="fa-solid fa-plus"></i>
                         Add Interest</a>
                 {% endif %}
                 <div class="interests">
                     {% if is_owner %}
-                        {% for interest in eventprofile.interest_set.all %}
+                        {% for interest in all_interests %}
                             <div class="interest">
                                 <h4>{{ interest }}</h4>
                                 <p>{{ interest.description }}</p>
                                 <a class="btn interest-edit-btn"
-                                   href="#">
+                                   href="{% url "interest-update" interest.pk %}">
                                     <i class="fa-solid fa-pen-nib"></i>
                                     Edit Interest</a>
                                 <a class="btn interest-delete-btn"
-                                   href="#">
+                                   href="{% url "interest-delete" interest.pk %}">
                                     <i class="fa-solid fa-trash"></i>
                                     Delete Interest</a>
                             </div>

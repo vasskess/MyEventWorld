@@ -19,7 +19,7 @@ from MyEventWorld.common_stuff.models import *
 class InterestCreate(LoginRequiredMixin, CreateView):
     model = Interest
     form_class = CreateInterestForm
-    template_name = ""
+    template_name = "common_stuff/interest_create.html"
 
     def form_valid(self, form):
         form.instance.interest_creator = EventProfile.objects.get(
@@ -40,7 +40,7 @@ class InterestCreate(LoginRequiredMixin, CreateView):
 class InterestUpdate(LoginRequiredMixin, InterestOwnershipMixin, UpdateView):
     model = Interest
     form_class = EditInterestForm
-    template_name = ""
+    template_name = "common_stuff/interest_update.html"
 
     def get_success_url(self):
         messages.info(self.request, "Interest edited successfully")
@@ -55,7 +55,7 @@ class InterestUpdate(LoginRequiredMixin, InterestOwnershipMixin, UpdateView):
 class InterestDelete(LoginRequiredMixin, InterestOwnershipMixin, DeleteView):
     model = Interest
     form_class = DeleteInterestForm
-    template_name = ""
+    template_name = "common_stuff/interest_delete.html"
 
     def get_success_url(self):
         messages.error(self.request, "Interest deleted successfully")
