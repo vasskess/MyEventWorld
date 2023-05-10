@@ -19,8 +19,8 @@
 
 @media screen and (min-width: 318px) {
     .profile {
-        min-height: calc(100vh - 11rem);
-        display: grid;
+        display: flex;
+        flex-direction: column;
         place-items: center;
         text-align: start;
         justify-content: center;

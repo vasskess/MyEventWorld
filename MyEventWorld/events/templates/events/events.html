@@ -6,16 +6,14 @@
             <h2>select the <span>event</span> that suits you the best</h2>
         </div>
         <div class="search-section">
-            <div class="search-items">
-                <form class="form" action="{% url "events-list" %}" method="get">
-                    <div class="form-field">
-                        <label for="form-search">Search By Events </label>
-                        <input class="text-input" id="form-search" type="text" name="search"
-                               placeholder="Search by Event Title"/>
-                    </div>
-                    <input class="search-input" type="submit" value="Search"/>
-                </form>
-            </div>
+            <form class="form" action="{% url "events-list" %}" method="get">
+                <div class="form-field">
+                    <label for="form-search">Search By Events </label>
+                    <input class="text-input" id="form-search" type="text" name="search"
+                           placeholder="Search by Event Title"/>
+                </div>
+                <input class="search-input" type="submit" value="Search"/>
+            </form>
         </div>
         <div class="section-center events-center">
             {% for event in events %}

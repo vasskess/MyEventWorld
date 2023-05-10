@@ -1,3 +1,10 @@
+.section-center {
+    width: 90vw;
+    padding-bottom: 2rem;
+    margin: 0 auto;
+    max-width: 1170px;
+}
+
 .section-title {
     margin-top: 7rem;
     text-align: center;
@@ -6,17 +13,17 @@
 
 .section-title h2 {
     text-transform: uppercase;
+    color: var(--clr-primary-2);
 }
 
 .section-title span {
-    color: var(--clr-primary-5);
+    color: var(--clr-grey-4);
 }
 
-.section-center {
-    width: 90vw;
-    padding-bottom: 2rem;
-    margin: 0 auto;
-    max-width: 1170px;
+@media screen and (min-width: 319px) {
+    .container {
+        padding: 0;
+    }
 }
 
 @media screen and (min-width: 992px) {

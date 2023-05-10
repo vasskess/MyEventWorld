@@ -1,13 +1,12 @@
 .search-section {
-    width: 100%;
     margin-bottom: 3.5rem;
 }
 
-.search-items > .form label {
+.form label {
     display: none;
 }
 
-.search-items > .form {
+.form {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,31 +25,33 @@
     color: var(--clr-primary-5);
 }
 
-.form-field .text-input:hover {
-    background-color: var(--clr-grey-8);
-    transition: var(--transition);
-    cursor: grab;
+.text-input:hover::placeholder {
+    color: var(--clr-primary-1);
 }
 
-.search-input:hover {
-    background-color: var(--clr-grey-8);
-    transition: var(--transition);
+.text-input:focus::placeholder {
+    color: transparent;
 }
 
-.search-items > .form input.text-input {
+.text-input {
     padding: 0.5rem 0.5rem;
     width: 30rem;
     font-family: cursive;
     font-weight: 700;
     font-size: 1.25rem;
-    outline: none;
     border-radius: 0.75rem;
     letter-spacing: 3px;
     border: 1px solid var(--clr-grey-4);
     transition: var(--transition);
 }
 
-.search-items > .form input.search-input {
+.text-input:hover {
+    background-color: var(--clr-grey-8);
+    transition: var(--transition);
+    cursor: grab;
+}
+
+.search-input {
     padding: 0.5rem;
     width: 10rem;
     font-family: cursive;
@@ -64,8 +65,14 @@
     transition: var(--transition);
 }
 
-@media screen and (max-width: 768px) {
-    .search-items > .form {
+.search-input:hover {
+    background-color: var(--clr-grey-8);
+    color: var(--clr-primary-1);
+    transition: var(--transition);
+}
+
+@media screen and (min-width: 319px) and (max-width: 715px) {
+    .form {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;

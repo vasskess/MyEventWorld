@@ -7,7 +7,7 @@
                 {% if is_owner %}
                     <a class="btn back-btn" href="{% url "message-inbox" user.eventprofile.pk %}" type="submit">
                         Cancel</a>
-                    <form class="form" method="post" action="{% url "message-delete" message_to_delete.pk %}">
+                    <form class="profile-delete-form" method="post" action="{% url "message-delete" message_to_delete.pk %}">
                         {% csrf_token %}
                         {{ form }}
                         <div class="column--2of3">
