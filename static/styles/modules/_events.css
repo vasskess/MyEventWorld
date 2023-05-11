@@ -74,9 +74,12 @@
         justify-content: space-around;
         gap: 3rem;
     }
+}
 
+@media screen and (max-width: 767px) {
     .event-card {
-        flex: 0 0 calc(50% - 2rem);
+        max-width: 20rem;
+        margin: 0 auto 2rem;
     }
 }
 
@@ -95,6 +98,7 @@
     margin-top: 7rem;
     background: var(--clr-grey-10);
     border-radius: 2rem;
+    max-width: 55rem;
 }
 
 .single-event-info a {

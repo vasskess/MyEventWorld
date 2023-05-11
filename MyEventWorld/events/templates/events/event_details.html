@@ -59,12 +59,14 @@
                          src="{{ review.review_creator.get_profile_avatar }}"
                          alt="Profile Avatar"/></a>
                 <div class="review-details">
-                    <h4>Reviewed by
+                    <h4>
                         <a href="{% url "user-details" review.review_creator.pk %}"
                            class="review-author">{{ review.review_creator }}</a>
                         - {{ review.date_created|my_filter }}
-                    </h4>
+                        </h4>
+                    <h4>Review Title</h4>
                     <p class="review-info">{{ review.review_title }}</p>
+                    <h4>Review Text</h4>
                     <p class="review-info">{{ review.review_text }}</p>
                 </div>
             </div>

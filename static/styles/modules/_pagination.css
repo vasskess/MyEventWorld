@@ -20,9 +20,6 @@
 }
 
 .search-info {
-    position: absolute; /*TODO think about this here !*/
-    display: flex;
-    max-width: 90%;
     text-align: center;
 }
 

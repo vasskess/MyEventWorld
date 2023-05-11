@@ -52,7 +52,7 @@ class EventDetails(DetailView):
             return self.get(request, *args, **kwargs)
         messages.error(
             self.request,
-            f"Review title must at least {form.instance.__class__.REVIEW_TITLE_MIN_LEN} \
+            f"Review title must be at least {form.instance.__class__.REVIEW_TITLE_MIN_LEN} \
                 and maximum {form.instance.__class__.REVIEW_TITLE_MAX_LEN} characters long ! \
                 Review text must be at least {form.instance.__class__.REVIEW_TEXT_MIN_LEN} \
                 and maximum {form.instance.__class__.REVIEW_TEXT_MAX_LEN} characters long !"
