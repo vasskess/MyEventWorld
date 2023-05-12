@@ -18,12 +18,12 @@
         <div class="section-center creators-center">
             {% for profile in profiles %}
                 <div class="creator-card">
+                    <img class="creator-avatar img" src="{{ profile.get_profile_avatar }}"
+                         alt="Profile Avatar"/>
                     <a href="{% url "user-details" profile.pk %}">
                         <div class="creator-profile">
-                            <img class="creator-avatar img" src="{{ profile.get_profile_avatar }}"
-                                 alt="Profile Avatar"/>
                             <div class="creator-info">
-                                <h4>{{ profile.get_user_username }}</h4>
+                                <h4 class="nick-name">{{ profile.get_user_username }}</h4>
                                 <h4>{% if profile.first_name %}
                                     {{ profile.first_name }}
                                 {% endif %}

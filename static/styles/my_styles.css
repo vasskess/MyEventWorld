@@ -50,7 +50,6 @@ body {
     color: var(--clr-grey-1);
     line-height: 1.5;
     font-size: 0.875rem;
-    padding-bottom: 2rem;
     background: url("../images/pattern.png");
 }
 
@@ -70,7 +69,8 @@ img:not(.nav-logo) {
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5 {
     letter-spacing: var(--spacing);
     text-transform: capitalize;
     line-height: 1.25;
@@ -91,6 +91,10 @@ h3 {
 
 h4 {
     font-size: 0.875rem;
+}
+
+h5 {
+    font-size: 0.75rem;
 }
 
 p {

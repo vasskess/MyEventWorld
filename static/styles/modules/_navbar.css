@@ -5,6 +5,7 @@
     width: 100%;
     background: var(--clr-white);
     box-shadow: var(--dark-shadow);
+    z-index: 2;
 }
 
 .nav-icons {
