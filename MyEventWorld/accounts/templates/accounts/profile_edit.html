@@ -1,10 +1,10 @@
 {% extends "common_stuff/base.html" %}
 
 {% block content %}
-        <section class="section-center edit-profile-section">
-                <div class="edit-profile-card">
+        <section class="section-center edit-section">
+                <div class="edit-card">
                     <a class="btn back-btn" href="{% url "profile-details" eventprofile.pk %}">Back</a>
-                        <form class="profile-edit-form" method="post" action="{% url "profile-edit" eventprofile.pk %}"
+                        <form class="edit-form" method="post" action="{% url "profile-edit" eventprofile.pk %}"
                               enctype="multipart/form-data">
                             {% csrf_token %}
                             {% for field in form %}

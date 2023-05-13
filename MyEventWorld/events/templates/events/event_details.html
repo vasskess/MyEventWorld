@@ -54,16 +54,15 @@
         {% endif %}
         {% for review in all_reviews %}
             <div class="reviews">
-                <a href="{% url "user-details" review.review_creator.pk %}">
-                    <img class="creator-avatar img review"
-                         src="{{ review.review_creator.get_profile_avatar }}"
-                         alt="Profile Avatar"/></a>
+                <img class="creator-avatar img review"
+                     src="{{ review.review_creator.get_profile_avatar }}"
+                     alt="Profile Avatar"/>
                 <div class="review-details">
                     <h4>
                         <a href="{% url "user-details" review.review_creator.pk %}"
                            class="review-author">{{ review.review_creator }}</a>
                         - {{ review.date_created|my_filter }}
-                        </h4>
+                    </h4>
                     <h4>Review Title</h4>
                     <p class="review-info">{{ review.review_title }}</p>
                     <h4>Review Text</h4>

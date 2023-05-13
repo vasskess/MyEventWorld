@@ -1,11 +1,11 @@
-{% load static %}
+{% extends "common_stuff/base.html" %}
 
-<link rel="stylesheet" href="{% static "styles/my_styles.css" %}" class="rel"/>
+{% block content %}
 
 <section class="section-center login-register-section">
-    <div class="edit-profile-card">
+    <div class="edit-card">
         <h3>Enter new password</h3>
-        <p>Please enter your new password twice so we can verify it .</p>
+        <p>Please enter your new password twice, so we can verify it .</p>
         <form method="POST">
             {% csrf_token %}
             {{ form.as_p }}
@@ -13,3 +13,4 @@
         </form>
     </div>
 </section>
+{% endblock content %}

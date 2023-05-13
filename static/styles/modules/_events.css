@@ -28,7 +28,6 @@
     background: var(--clr-primary-8);
     margin-bottom: 0;
     color: var(--clr-primary-1);
-    text-transform: capitalize;
     padding: 0.25rem 0.5rem;
 }
 
@@ -56,7 +55,6 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    align-items: center;
     margin-bottom: 1.5rem;
 }
 

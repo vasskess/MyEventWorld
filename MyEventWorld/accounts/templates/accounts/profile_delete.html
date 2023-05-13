@@ -2,10 +2,10 @@
 
 {% block content %}
     <section class="section-center delete-profile-section">
-        <div class="edit-profile-card">
+        <div class="edit-card">
             <div class="content-box">
                     <a class="btn back-btn" href="{% url "profile-details" eventprofile.pk %}">Cancel</a>
-                    <form class="profile-delete-form" method="post" action="{% url "profile-delete" eventprofile.pk %}"
+                    <form class="delete-form" method="post" action="{% url "profile-delete" eventprofile.pk %}"
                           enctype="multipart/form-data">
                         {% csrf_token %}
                         {{ form }}

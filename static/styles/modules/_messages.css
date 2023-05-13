@@ -1,5 +1,4 @@
-.inbox {  /* TODO make this looks better when on small screen ! */
-    height: 90vh;
+.inbox {
     margin: 8rem auto;
 }
 
@@ -23,28 +22,34 @@
 
 .messages {
     list-style: none;
-    background: var(--clr-white);
-    padding: 0.5rem 3rem;
+    background: var(--clr-primary-5);
+    padding: 1.5rem 3rem;
     border: 2px solid var(--clr-grey-5);
     border-radius: 0.7rem;
+    box-shadow: var(--ultra-dark-shadow);
 }
 
 .message {
-    padding: 2.5rem 0;
+    padding: 1rem 1rem;
+    background: var(--clr-grey-5);
+    border: 2px solid var(--clr-white);
+    border-radius: var(--radius);
+    margin-bottom: 0.5rem;
 }
 
-.message > a span {
-    font-size: 1.25rem;
+.message:hover {
+    background: var(--clr-primary-3);
 }
 
-.message.message-unread a span {
-    font-weight: 700;
-    color: green;
+
+.message-date {
+    color: var(--clr-white);
 }
 
 .message > a {
     display: flex;
     gap: 1rem;
+    color: var(--clr-white);
 }
 
 .message-author,
@@ -58,4 +63,31 @@
 
 .message-date {
     text-align: right;
+}
+
+.single-msg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.single-msg a {
+    margin-bottom: 1rem;
+}
+
+.msg {
+    background: var(--clr-grey-4);
+}
+
+.single-message-author, .message-body {
+    margin-bottom: 1rem;
+    color: var(--clr-primary-7);
+}
+
+@media screen and (max-width: 420px) {
+    .message > a {
+        flex-direction: column;
+        align-items: center;
+    }
 }

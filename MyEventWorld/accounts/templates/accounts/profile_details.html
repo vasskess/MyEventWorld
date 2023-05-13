@@ -2,7 +2,7 @@
 
 {% block content %}
     <section class="section-center profile">
-        <div class="profile-card">
+        <div class="card">
             <div class="profile-img">
                 <img class="profile-photo"
                      src="{{ eventprofile.get_profile_avatar }}" alt="Profile Image"/>
@@ -23,9 +23,9 @@
                 <p>{% if eventprofile.location %}
                     <h4> Based in {{ eventprofile.location }}</h4>
                 {% endif %}
-            {% if not owner %}
-            <a href="{% url "message-create" eventprofile.pk %}" class="btn">Send Message</a>
-            {% endif %}
+                {% if not owner %}
+                    <a href="{% url "message-create" eventprofile.pk %}" class="btn">Send Message</a>
+                {% endif %}
             </div>
             <div class="profile-about">
                 <h2 class="about-title">About Me</h2>
@@ -39,14 +39,12 @@
             </div>
             <div class="profile-interests">
                 <h3 class="interests-title">Interests</h3>
-                <div class=""> {# TODO think how to look this here ! #}
-                    {% for interest in eventprofile.interest_set.all %}
-                        <h4>{{ interest }}</h4>
-                        <p>{{ interest.description }}</p>
-                    {% empty %}
-                        <p>No Interests added yet</p>
-                    {% endfor %}
-                </div>
+                {% for interest in eventprofile.interest_set.all %}
+                    <h4>{{ interest }}</h4>
+                    <p>{{ interest.description }}</p>
+                {% empty %}
+                    <p>No Interests added yet</p>
+                {% endfor %}
             </div>
         </div>
         <div class="profile-event-title">
