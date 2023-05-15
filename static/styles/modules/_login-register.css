@@ -42,7 +42,7 @@
         background: var(--clr-grey-1);
     }
 
-    .login-form-field > .btn-forgot:hover { /* TODO - maybe use this here ?! */
+    .login-form-field > .btn-forgot:hover {
         color: var(--clr-white);
         background: var(--clr-grey-4);
     }

@@ -3,6 +3,7 @@
         display: flex;
         justify-content: center;
         margin: 7rem auto;
+        padding: 0 1rem;
     }
 
     .log-reg-error, .update-alert{

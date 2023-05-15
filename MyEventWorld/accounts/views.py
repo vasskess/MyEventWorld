@@ -2,6 +2,7 @@ from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.db.models import Q
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import (
     ListView,
@@ -74,8 +75,8 @@ class UserCreate(NotLoginRequiredMixin, CreateView):
         login(self.request, self.object)
         messages.error(
             self.request,
-            "User registered successfully. Manage your profile and start creating events from My Profile",
-        )  # TODO - fix this here !
+            "Welcome! Manage your profile from MyProfile",
+        )
         return result
 
     def get_context_data(self, **kwargs):
@@ -93,7 +94,6 @@ class UserProfileEdit(LoginRequiredMixin, UserOwnershipMixin, UpdateView):
     template_name = "accounts/profile_edit.html"
 
     def get_success_url(self):
-        messages.success(self.request, "Profile was updated successfully")
         return reverse_lazy(
             "profile-details",
             kwargs={
