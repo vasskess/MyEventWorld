@@ -10,9 +10,7 @@
                     <form class="delete-form" method="post" action="{% url "message-delete" message_to_delete.pk %}">
                         {% csrf_token %}
                         {{ form }}
-                        <div class="column--2of3">
-                            <h2>Are you sure you want to delete '{{ message }}'</h2>
-                        </div>
+                        <h2>Are you sure you want to delete '{{ message }}'</h2>
                         <input class="btn" type="submit" value="Delete"/>
                     </form>
                 {% endif %}

@@ -75,7 +75,7 @@ class UserCreate(NotLoginRequiredMixin, CreateView):
         messages.error(
             self.request,
             "User registered successfully. Manage your profile and start creating events from My Profile",
-        )
+        )  # TODO - fix this here !
         return result
 
     def get_context_data(self, **kwargs):
@@ -93,6 +93,7 @@ class UserProfileEdit(LoginRequiredMixin, UserOwnershipMixin, UpdateView):
     template_name = "accounts/profile_edit.html"
 
     def get_success_url(self):
+        messages.success(self.request, "Profile was updated successfully")
         return reverse_lazy(
             "profile-details",
             kwargs={
@@ -107,7 +108,7 @@ class UserProfileDelete(LoginRequiredMixin, UserOwnershipMixin, DeleteView):
     template_name = "accounts/profile_delete.html"
 
     def get_success_url(self):
-        messages.success(self.request, "User was deleted successfully")
+        messages.success(self.request, "Profile was deleted successfully")
         return reverse_lazy("login")
 
 
@@ -121,7 +122,6 @@ class UserLogin(NotLoginRequiredMixin, LoginView):
         return context
 
     def get_success_url(self):
-        messages.error(self.request, "User was logged successfully")  # TODO - Think if i want this here !
         return reverse_lazy("events-list")
 
 

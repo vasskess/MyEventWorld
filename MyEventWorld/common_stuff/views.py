@@ -43,7 +43,7 @@ class InterestUpdate(LoginRequiredMixin, InterestOwnershipMixin, UpdateView):
     template_name = "common_stuff/interest_update.html"
 
     def get_success_url(self):
-        messages.info(self.request, "Interest edited successfully")
+        messages.success(self.request, "Interest updated successfully")
         return reverse_lazy(
             "profile-details",
             kwargs={
@@ -58,7 +58,7 @@ class InterestDelete(LoginRequiredMixin, InterestOwnershipMixin, DeleteView):
     template_name = "common_stuff/interest_delete.html"
 
     def get_success_url(self):
-        messages.error(self.request, "Interest deleted successfully")
+        messages.success(self.request, "Interest deleted successfully")
         return reverse_lazy(
             "profile-details",
             kwargs={
@@ -97,7 +97,7 @@ class CreateMessage(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        messages.error(self.request, "Message sent successfully")
+        messages.success(self.request, "Message sent successfully")
         return reverse_lazy("users-list")
 
 
@@ -131,7 +131,7 @@ class DeleteMessage(LoginRequiredMixin, MessageOwnershipMixin, DeleteView):
         return context
 
     def get_success_url(self):
-        messages.info(self.request, "Message deleted successfully")
+        messages.success(self.request, "Message deleted successfully")
         return reverse_lazy(
             "message-inbox",
             kwargs={

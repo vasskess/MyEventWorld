@@ -97,6 +97,7 @@ class EventUpdate(LoginRequiredMixin, EventOwnershipMixin, UpdateView):
     template_name = "events/event_update.html"
 
     def get_success_url(self):
+        messages.success(self.request, "Event updated successfully")
         return reverse_lazy(
             "profile-details",
             kwargs={
@@ -111,6 +112,7 @@ class EventDelete(LoginRequiredMixin, EventOwnershipMixin, DeleteView):
     template_name = "events/event_delete.html"
 
     def get_success_url(self):
+        messages.success(self.request, "Event deleted successfully")
         return reverse_lazy(
             "profile-details",
             kwargs={

@@ -36,7 +36,6 @@
 
 .nav-toggle:hover {
     transform: scale(1.2);
-    rotate: 90deg; /* TODO - think if i want this here ! */
 }
 
 .nav-link {
