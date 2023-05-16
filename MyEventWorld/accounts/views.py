@@ -127,5 +127,4 @@ class UserLogin(NotLoginRequiredMixin, LoginView):
 
 class UserLogout(LogoutView):
     def get_success_url(self):
-        messages.success(self.request, "User was logged out")
         return reverse_lazy("login")

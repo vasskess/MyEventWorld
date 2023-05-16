@@ -1,7 +1,7 @@
 {% extends "common_stuff/base.html" %}
 
 {% block content %}
-        <section class="section-center edit-section">
+        <section class="section-center edit-section profile-edit">
                 <div class="edit-card">
                     <a class="btn back-btn" href="{% url "profile-details" eventprofile.pk %}">Back</a>
                         <form class="edit-form" method="post" action="{% url "profile-edit" eventprofile.pk %}"

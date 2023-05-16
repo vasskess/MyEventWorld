@@ -170,3 +170,23 @@ p {
     color: var(--clr-primary-1);
     background: var(--clr-primary-8);
 }
+
+textarea {
+    resize: none;
+}
+
+.footer {
+    display: none;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--clr-white);
+    padding: 0.7rem;
+    text-align: center;
+    box-shadow: var(--dark-shadow);
+}
+
+.footer p {
+    margin: 0;
+}
