@@ -1,9 +1,3 @@
-/*------------
-    Fonts
-------------*/
-
-@import url("https://fonts.googleapis.com/css?family=Lato:400,700&display=swap");
-
 /*----------------
     Variables
 ----------------*/
@@ -30,7 +24,7 @@
     --clr-darkpink: hsl(341 ,64%, 55%);
     --clr-darkgreen: hsl(181, 70% ,18%);
     --clr-white: #fff;
-    --ff-primary: "Lato", sans-serif;
+    --ff-primary: "Georgia", sans-serif;
     --transition: all 0.3s linear;
     --spacing: 0.1rem;
     --radius: 0.5rem;
