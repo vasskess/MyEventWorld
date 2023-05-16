@@ -9,31 +9,26 @@
 ----------------*/
 
 :root {
-    /* dark shades of primary color*/
-    --clr-primary-1: hsl(184, 91%, 17%);
-    --clr-primary-2: hsl(185, 84%, 25%);
-    --clr-primary-3: hsl(185, 81%, 29%);
-    --clr-primary-4: hsl(184, 77%, 34%);
-    /* primary/main color */
-    --clr-primary-5: hsl(185, 62%, 45%);
-    /* lighter shades of primary color */
-    --clr-primary-6: hsl(185, 57%, 50%);
-    --clr-primary-7: hsl(184, 65%, 59%);
-    --clr-primary-8: hsl(184, 80%, 74%);
-    --clr-primary-9: hsl(185, 94%, 87%);
-    --clr-primary-10: hsl(186, 100%, 94%);
-    /* darkest grey - used for headings */
+    /* primary colors */
+    --clr-primary-1: hsl(205, 17%, 26%);
+    --clr-primary-2: hsl(202, 31%, 17%);
+    --clr-primary-3: hsl(201, 30%, 28%);
+    --clr-primary-4: hsl(201, 30%, 39%);
+    --clr-primary-5: hsl(201, 40%, 56%);
+    --clr-primary-6: hsl(202, 40%, 69%);
+    --clr-primary-7: hsl(201, 40%, 78%);
+    --clr-primary-8: hsl(175, 97%, 84%);
+     /* grey colors */
     --clr-grey-1: hsl(209, 61%, 16%);
-    --clr-grey-2: hsl(211, 39%, 23%);
-    --clr-grey-3: hsl(209, 34%, 30%);
-    --clr-grey-4: hsl(209, 28%, 39%);
-    /* grey used for paragraphs */
-    --clr-grey-5: hsl(210, 22%, 49%);
-    --clr-grey-6: hsl(209, 23%, 60%);
-    --clr-grey-7: hsl(211, 27%, 70%);
-    --clr-grey-8: hsl(210, 31%, 80%);
-    --clr-grey-9: hsl(212, 33%, 89%);
-    --clr-grey-10: hsl(210, 36%, 96%);
+    --clr-grey-2: hsl(209, 28%, 39%);
+    --clr-grey-3: hsl(210, 22%, 49%);
+    --clr-grey-4: hsl(211, 27%, 70%);
+    --clr-grey-5: hsl(210, 31%, 80%);
+    --clr-grey-6: hsl(212, 33%, 89%);
+    --clr-grey-7: hsl(210, 36%, 96%);
+    /* other */
+    --clr-darkpink: hsl(341 ,64%, 55%);
+    --clr-darkgreen: hsl(181, 70% ,18%);
     --clr-white: #fff;
     --ff-primary: "Lato", sans-serif;
     --transition: all 0.3s linear;
@@ -100,7 +95,7 @@ h5 {
 p {
     margin-bottom: 1.25rem;
     letter-spacing: var(--spacing);
-    color: var(--clr-grey-5);
+    color: var(--clr-grey-3);
 }
 
 @media screen and (min-width: 800px) {
@@ -162,31 +157,15 @@ p {
 }
 
 .edit-card > form > ul {
-    color: red;
+    color: var(--clr-darkpink);
 }
 
 
 .btn:hover {
-    color: var(--clr-primary-1);
-    background: var(--clr-primary-8);
+    color: var(--clr-primary-2);
+    background: var(--clr-primary-7);
 }
 
 textarea {
     resize: none;
-}
-
-.footer {
-    display: none;
-    justify-content: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: var(--clr-white);
-    padding: 0.7rem;
-    text-align: center;
-    box-shadow: var(--dark-shadow);
-}
-
-.footer p {
-    margin: 0;
 }

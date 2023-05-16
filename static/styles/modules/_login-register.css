@@ -3,7 +3,7 @@
     .login-register-section {
         margin-top: 7rem;
         background: var(--clr-white);
-        border: 0.3rem solid var(--clr-primary-1);
+        border: 0.3rem solid var(--clr-primary-2);
         border-radius: 2rem;
         padding-bottom: 0;
         max-width: 40rem;
@@ -44,6 +44,6 @@
 
     .login-form-field > .btn-forgot:hover {
         color: var(--clr-white);
-        background: var(--clr-grey-4);
+        background: var(--clr-grey-2);
     }
 }

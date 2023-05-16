@@ -27,7 +27,7 @@
 }
 
 .text-input:hover::placeholder {
-    color: var(--clr-primary-1);
+    color: var(--clr-primary-2);
     transition: var(--transition);
 }
 
@@ -44,12 +44,12 @@
     font-size: 1.25rem;
     border-radius: 0.75rem;
     letter-spacing: 3px;
-    border: 1px solid var(--clr-grey-4);
+    border: 1px solid var(--clr-grey-2);
     transition: var(--transition);
 }
 
 .text-input:hover {
-    background-color: var(--clr-grey-8);
+    background-color: var(--clr-grey-5);
     transition: var(--transition);
     cursor: grab;
 }
@@ -62,15 +62,15 @@
     font-size: 1.25rem;
     letter-spacing: var(--spacing);
     color: var(--clr-primary-5);
-    border: 1px solid var(--clr-grey-4);
+    border: 1px solid var(--clr-grey-2);
     border-radius: 0.75rem;
     cursor: pointer;
     transition: var(--transition);
 }
 
 .search-input:hover {
-    background-color: var(--clr-grey-8);
-    color: var(--clr-primary-1);
+    background-color: var(--clr-grey-5);
+    color: var(--clr-primary-2);
     transition: var(--transition);
 }
 

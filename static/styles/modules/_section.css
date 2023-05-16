@@ -13,11 +13,11 @@
 
 .section-title h2 {
     text-transform: uppercase;
-    color: var(--clr-primary-2);
+    color: var(--clr-primary-3);
 }
 
 .section-title span {
-    color: var(--clr-grey-4);
+    color: var(--clr-primary-5);
 }
 
 @media screen and (min-width: 319px) {

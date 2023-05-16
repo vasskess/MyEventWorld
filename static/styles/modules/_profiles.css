@@ -4,7 +4,7 @@
     display: flex;
     align-content: center;
     transition: var(--transition);
-    background: var(--clr-grey-10);
+    background: var(--clr-grey-7);
     box-shadow: var(--light-shadow);
     margin-bottom: 2rem;
     border-radius: 2rem;
@@ -60,7 +60,7 @@
     }
 
     .interest {
-        background: var(--clr-grey-8);
+        background: var(--clr-grey-5);
         padding: 1rem 2rem;
         border-radius: 2rem;
     }
@@ -101,7 +101,7 @@
 
     .profile-event-card {
         transition: var(--transition);
-        background: var(--clr-grey-10);
+        background: var(--clr-grey-7);
         box-shadow: var(--light-shadow);
         margin-bottom: 2rem;
         border-radius: 2rem;
@@ -110,8 +110,8 @@
     }
 
     .no-event {
-        color: var(--clr-primary-1);
-        background: var(--clr-grey-10);
+        color: var(--clr-primary-2);
+        background: var(--clr-grey-7);
         padding: 1rem 2rem;
         border-radius: 2rem;
         font-size: 3rem;
@@ -141,7 +141,7 @@
     .edit-section {
         margin-top: 7rem;
         background: var(--clr-white);
-        border: 0.3rem solid var(--clr-primary-1);
+        border: 0.3rem solid var(--clr-primary-2);
         border-radius: 2rem;
         max-width: 50rem;
     }
@@ -155,12 +155,12 @@
     }
 
     #id_about_me:focus {
-        background: var(--clr-grey-9);
+        background: var(--clr-grey-6);
     }
 
     .edit-form-field > input:focus {
-        border: var(--clr-primary-1);
-        background: var(--clr-grey-9);
+        border: var(--clr-primary-2);
+        background: var(--clr-grey-6);
     }
 
     .edit-form-field > label {
@@ -176,7 +176,7 @@
     .delete-profile-section {
         margin-top: 7rem;
         background: var(--clr-white);
-        border: 0.3rem solid var(--clr-primary-1);
+        border: 0.3rem solid var(--clr-primary-2);
         border-radius: 2rem;
         padding-bottom: 0;
         max-width: 50rem;

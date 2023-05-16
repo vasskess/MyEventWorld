@@ -18,15 +18,15 @@
         max-width: 30rem;
         background: var(--clr-white);
         border-radius: 2rem;
-        color: red;
+        color: var(--clr-darkpink);
     }
 
     .alert.alert--success,
     .alert.alert--success > .alert--message {
         padding-top: 0.5rem;
         max-width: 30rem;
-        background: var(--clr-white);
+        background: var(--clr-darkgreen);
         border-radius: 2rem;
-        color: green;
+        color: var(--clr-white);
     }
 }

@@ -12,33 +12,33 @@
 }
 
 .inbox-title {
-    color: var(--clr-primary-1);
+    color: var(--clr-primary-2);
     margin: 0 auto;
 }
 
 .inbox-title span {
-    color: red;
+    color: var(--clr-darkpink);
 }
 
 .messages {
     list-style: none;
     background: var(--clr-primary-5);
     padding: 1.5rem 3rem;
-    border: 2px solid var(--clr-grey-5);
+    border: 2px solid var(--clr-grey-3);
     border-radius: 0.7rem;
     box-shadow: var(--ultra-dark-shadow);
 }
 
 .message {
     padding: 1rem 1rem;
-    background: var(--clr-grey-5);
+    background: var(--clr-grey-3);
     border: 2px solid var(--clr-white);
     border-radius: var(--radius);
     margin-bottom: 0.5rem;
 }
 
 .message:hover {
-    background: var(--clr-primary-3);
+    background: var(--clr-primary-4);
 }
 
 
@@ -77,12 +77,12 @@
 }
 
 .msg {
-    background: var(--clr-grey-4);
+    background: var(--clr-grey-2);
 }
 
 .single-message-author, .message-body {
     margin-bottom: 1rem;
-    color: var(--clr-primary-7);
+    color: var(--clr-primary-6);
 }
 
 @media screen and (max-width: 420px) {

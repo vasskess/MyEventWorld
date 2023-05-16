@@ -1,6 +1,6 @@
 .event-card {
     transition: var(--transition);
-    background: var(--clr-grey-10);
+    background: var(--clr-grey-7);
     box-shadow: var(--light-shadow);
     margin-bottom: 2rem;
     border-radius: 2rem;
@@ -25,9 +25,9 @@
     position: absolute;
     right: 0;
     bottom: 0;
-    background: var(--clr-primary-8);
+    background: var(--clr-primary-7);
     margin-bottom: 0;
-    color: var(--clr-primary-1);
+    color: var(--clr-primary-2);
     padding: 0.25rem 0.5rem;
 }
 
@@ -48,7 +48,7 @@
 }
 
 .event-title a {
-    color: var(--clr-grey-7);
+    color: var(--clr-grey-4);
 }
 
 .event-footer {
@@ -94,17 +94,18 @@
 .single-event-info {
     padding: 1.25rem 1.5rem 1rem 1.5rem;
     margin-top: 7rem;
-    background: var(--clr-grey-10);
+    margin-bottom: 5rem;
+    background: var(--clr-grey-7);
     border-radius: 2rem;
     max-width: 55rem;
 }
 
 .single-event-info a {
-    color: var(--clr-primary-1);
+    color: var(--clr-primary-2);
 }
 
 .single-event-info a:hover {
-    color: var(--clr-primary-7);
+    color: var(--clr-primary-6);
 }
 
 .single-event-img {
@@ -123,7 +124,7 @@
 
 .reviews {
     padding: 1.25rem 1.5rem 1rem 1.5rem;
-    border: 0.3rem solid var(--clr-primary-1);
+    border: 0.3rem solid var(--clr-primary-2);
     border-radius: 2rem;
     margin-bottom: 1rem;
 }
