@@ -12,10 +12,10 @@ window.addEventListener('DOMContentLoaded', function () {
         const footer = document.getElementsByClassName('footer')[0];
         const scrollPosition = window.scrollY;
 
-        const documentHeight = document.documentElement.scrollHeight;
-        const viewportHeight = window.innerHeight;
+        const documentHeight = window.innerHeight;
+        const viewportHeight = document.body.offsetHeight;
 
-        if (scrollPosition + viewportHeight >= documentHeight) {
+        if (scrollPosition + documentHeight > viewportHeight) {
             footer.style.display = 'flex';
         } else {
             footer.style.display = 'none';

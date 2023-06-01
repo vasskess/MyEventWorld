@@ -3,10 +3,6 @@ from django.views.generic import DetailView
 
 
 class UserOwnershipMixin(DetailView):
-    """
-        This will not let user to manually access other user profiles urls and edit or delete it
-    """
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
@@ -17,9 +13,6 @@ class UserOwnershipMixin(DetailView):
 
 
 class EventOwnershipMixin(DetailView):
-    """
-        This will not let user to manually access other user profiles events urls and edit or delete it
-    """
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -31,9 +24,6 @@ class EventOwnershipMixin(DetailView):
 
 
 class InterestOwnershipMixin(DetailView):
-    """
-        This will not let user to manually access other user profiles interests and edit or delete it
-    """
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -45,9 +35,6 @@ class InterestOwnershipMixin(DetailView):
 
 
 class MessageOwnershipMixin(DetailView):
-    """
-        This will not let user to manually access other user profiles messages and edit or delete it
-    """
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

@@ -46,8 +46,6 @@ class EventProfile(models.Model):
     LOCATION_MIN_LEN_MESSAGE = f"Location must be at least {LOCATION_MIN_LEN} characters long"
 
     ABOUT_ME_MAX_LEN = 2500
-    # Default messages will be used for:
-    # FIRST_NAME_MAX_LEN, LAST_NAME_MAX_LEN, LOCATION_MAX_LEN & ABOUT_ME_MAX_LEN Validations
 
     AGE_MIN_VALUE = 18
     AGE_MAX_VALUE = 122

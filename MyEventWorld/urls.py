@@ -4,6 +4,9 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as password_views
 
+from MyEventWorld.accounts.views import UserPasswordReset, UserPasswordResetDone, UserPasswordConfirmation, \
+    UserPasswordResetComplete
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("MyEventWorld.events.urls")),
@@ -11,26 +14,22 @@ urlpatterns = [
     path("common/", include("MyEventWorld.common_stuff.urls")),
     path(
         "reset_password/",
-        password_views.PasswordResetView.as_view(template_name="reset_password.html"),
+        UserPasswordReset.as_view(),
         name="reset_password",
     ),
     path(
         "reset_password_sent/",
-        password_views.PasswordResetDoneView.as_view(
-            template_name="reset_password_sent.html"
-        ),
+        UserPasswordResetDone.as_view(),
         name="password_reset_done",
     ),
     path(
         "reset/<uidb64>/<token>/",
-        password_views.PasswordResetConfirmView.as_view(template_name="reset.html"),
+        UserPasswordConfirmation.as_view(),
         name="password_reset_confirm",
     ),
     path(
         "reset_password_complete/",
-        password_views.PasswordResetCompleteView.as_view(
-            template_name="reset_password_complete.html"
-        ),
+        UserPasswordResetComplete.as_view(),
         name="password_reset_complete",
     ),
 ]

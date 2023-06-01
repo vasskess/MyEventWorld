@@ -139,22 +139,6 @@ p {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-.res-pass-btn {
-    max-width: 7rem;
-    align-self: center;
-    margin-bottom: 1rem;
-}
-
-.pass-form {
-    display: flex;
-    flex-direction: column;
-}
-
-.edit-card > form > ul {
-    color: var(--clr-darkpink);
-}
-
-
 .btn:hover {
     color: var(--clr-primary-2);
     background: var(--clr-primary-7);

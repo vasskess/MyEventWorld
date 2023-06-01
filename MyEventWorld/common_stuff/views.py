@@ -92,7 +92,6 @@ class CreateMessage(LoginRequiredMixin, CreateView):
         form.instance.sender = EventProfile.objects.get(user_id=self.request.user.pk)
         form.instance.receiver = EventProfile.objects.get(user_id=self.kwargs["pk"])
         if form.instance.sender == form.instance.receiver:
-            # This will not let user manually access its pk and send message to its self
             raise PermissionDenied
         return super().form_valid(form)
 

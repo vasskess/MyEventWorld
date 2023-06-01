@@ -1,8 +1,8 @@
 from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import LoginView, LogoutView, PasswordResetView, PasswordResetDoneView, \
+    PasswordResetConfirmView, PasswordResetCompleteView
 from django.db.models import Q
-from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import (
     ListView,
@@ -128,3 +128,20 @@ class UserLogin(NotLoginRequiredMixin, LoginView):
 class UserLogout(LogoutView):
     def get_success_url(self):
         return reverse_lazy("login")
+
+
+class UserPasswordReset(PasswordResetView):
+    template_name = "reset_password.html"
+
+
+class UserPasswordResetDone(PasswordResetDoneView):
+    template_name = "reset_password_sent.html"
+
+
+class UserPasswordConfirmation(PasswordResetConfirmView):
+    template_name = "reset_confirmation.html"
+
+
+class UserPasswordResetComplete(PasswordResetCompleteView):
+    template_name = "reset_password_complete.html"
+

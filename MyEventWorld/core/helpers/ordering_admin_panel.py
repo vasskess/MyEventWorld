@@ -8,9 +8,6 @@ ADMIN_ORDERING = [
 
 
 def get_app_list(self, request):
-    """
-        This will override django build in get_app_list method, so we can order apps in admin panel in a way we want
-    """
     app_dict = self._build_app_dict(request)
     for app_name in ADMIN_ORDERING:
         app = app_dict[app_name]

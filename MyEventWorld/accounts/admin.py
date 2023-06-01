@@ -56,8 +56,6 @@ class EventUserAdmin(auth_admin.UserAdmin):
             },
         ),
     )
-    # The fields to be used in displaying the User model.
-    # These override the definitions on the base UserAdmin that reference specific fields on auth.User.
 
     add_fieldsets = (
         (
@@ -75,8 +73,6 @@ class EventUserAdmin(auth_admin.UserAdmin):
             },
         ),
     )
-    # add_fieldsets is not a standard ModelAdmin attribute.
-    # UserAdmin overrides get_fieldsets to use this attribute when creating a user.
 
     list_per_page = EVENT_USERS_PER_PAGE
 

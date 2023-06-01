@@ -2,7 +2,6 @@
     transition: var(--transition);
     background: var(--clr-grey-7);
     box-shadow: var(--light-shadow);
-    margin-bottom: 2rem;
     border-radius: 2rem;
     overflow: hidden;
 }
