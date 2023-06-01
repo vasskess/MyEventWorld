@@ -27,6 +27,11 @@
                     <li>
                         <a href="{% url "logout" %}" class="nav-link scroll-link">Logout</a>
                     </li>
+                    {% if request.user.is_superuser or request.user.is_staff %}
+                        <li>
+                        <a href="{% url "admin:index" %}" class="nav-link scroll-link">Administration</a>
+                        </li>
+                        {% endif %}
                 {% else %}
                     <li>
                         <a href="{% url "login" %}" class="nav-link scroll-link">Login/SignUp</a>

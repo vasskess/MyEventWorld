@@ -9,7 +9,6 @@ import cloudinary.uploader
 import cloudinary.api
 import environ
 
-from MyEventWorld.core.helpers.ordering_admin_panel import get_app_list
 
 env = environ.Env()
 environ.Env.read_env()
@@ -141,5 +140,3 @@ STATICFILES_DIRS = [
 ]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-admin.AdminSite.get_app_list = get_app_list
