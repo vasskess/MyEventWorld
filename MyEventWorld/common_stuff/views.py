@@ -1,6 +1,6 @@
-from django.core.exceptions import PermissionDenied
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 
 from django.views.generic import (
@@ -11,7 +11,6 @@ from django.views.generic import (
     DetailView,
 )
 
-from MyEventWorld.core.mixins.ownership_mixins import InterestOwnershipMixin, MessageOwnershipMixin
 from MyEventWorld.common_stuff.forms import *
 from MyEventWorld.common_stuff.models import *
 
@@ -37,7 +36,7 @@ class InterestCreate(LoginRequiredMixin, CreateView):
         )
 
 
-class InterestUpdate(LoginRequiredMixin, InterestOwnershipMixin, UpdateView):
+class InterestUpdate(LoginRequiredMixin, UpdateView):
     model = Interest
     form_class = EditInterestForm
     template_name = "common_stuff/interest_update.html"
@@ -52,7 +51,7 @@ class InterestUpdate(LoginRequiredMixin, InterestOwnershipMixin, UpdateView):
         )
 
 
-class InterestDelete(LoginRequiredMixin, InterestOwnershipMixin, DeleteView):
+class InterestDelete(LoginRequiredMixin, DeleteView):
     model = Interest
     form_class = DeleteInterestForm
     template_name = "common_stuff/interest_delete.html"
@@ -92,7 +91,8 @@ class CreateMessage(LoginRequiredMixin, CreateView):
         form.instance.sender = EventProfile.objects.get(user_id=self.request.user.pk)
         form.instance.receiver = EventProfile.objects.get(user_id=self.kwargs["pk"])
         if form.instance.sender == form.instance.receiver:
-            raise PermissionDenied
+            messages.error(self.request, "You cannot send message to yourself!")
+            return redirect("users-list")
         return super().form_valid(form)
 
     def get_success_url(self):
@@ -100,7 +100,7 @@ class CreateMessage(LoginRequiredMixin, CreateView):
         return reverse_lazy("users-list")
 
 
-class ReadMessage(LoginRequiredMixin, MessageOwnershipMixin, DetailView):
+class ReadMessage(LoginRequiredMixin, DetailView):
     model = Message
     context_object_name = "message"
     template_name = "common_stuff/messages.html"
@@ -116,7 +116,7 @@ class ReadMessage(LoginRequiredMixin, MessageOwnershipMixin, DetailView):
         return context
 
 
-class DeleteMessage(LoginRequiredMixin, MessageOwnershipMixin, DeleteView):
+class DeleteMessage(LoginRequiredMixin, DeleteView):
     model = Message
     form_class = DeleteMessageForm
     context_object_name = "message"

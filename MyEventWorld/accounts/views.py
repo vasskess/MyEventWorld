@@ -48,7 +48,6 @@ class UserDetails(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["owner"] = self.request.user.id == self.object.pk
         context["all_interests"] = self.object.interest_set.all
         context["all_events"] = self.object.event_set.all
         return context
@@ -60,7 +59,6 @@ class UserProfile(LoginRequiredMixin, UserOwnershipMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["interest_owner"] = self.request.user.id == self.object.pk
         context["all_interests"] = self.object.interest_set.all
         context["all_events"] = self.object.event_set.all
         return context
