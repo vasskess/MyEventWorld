@@ -63,34 +63,6 @@
                 </div>
             {% endfor %}
         </div>
-        {% if is_paginated %}
-            <div class="pagination">
-            <ul class="container">
-            {% if page_obj.has_previous and request.GET.search %}
-                <li><a href="{{ request.get_full_path }}&page={{ page_obj.previous_page_number }}"
-                       class="btn"
-                       data-page="{{ request.get_full_path }}&page={{ page_obj.previous_page_number }}">&#10094;
-                    Prev</a></li>
-            {% elif page_obj.has_previous %}
-                <li><a href="?page={{ page_obj.previous_page_number }}" class="btn"
-                       data-page="{{ request.get_full_path }}&page={{ page_obj.previous_page_number }}">&#10094;
-                    Prev</a></li>
-            {% endif %}
-
-            <span class="btn-page">
-                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
-            </span>
-            {% if page_obj.has_next and request.GET.search %}
-                <li><a href="{{ request.get_full_path }}&page={{ page_obj.next_page_number }}"
-                       class="btn"
-                       data-page="{{ request.get_full_path }}&page={{ page_obj.next_page_number }}">Next &#10095;</a>
-                </li>
-            {% elif page_obj.has_next %}
-                <li><a href="?page={{ page_obj.next_page_number }}" class="btn"
-                       data-page="?page={{ page_obj.next_page_number }}">Next &#10095;</a></li>
-            {% endif %}
-        {% endif %}
-        </ul>
-        </div>
+        {% include "partials/pages_pagination.html" %}
     </section>
 {% endblock content %}
