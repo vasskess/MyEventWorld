@@ -4,7 +4,6 @@
     <section class="section-center delete-profile-section">
         <div class="edit-card">
             <div class="content-box">
-                {% if is_owner %}
                     <a class="btn back-btn" href="{% url "message-inbox" user.eventprofile.pk %}" type="submit">
                         Cancel</a>
                     <form class="delete-form" method="post" action="{% url "message-delete" message_to_delete.pk %}">
@@ -13,7 +12,6 @@
                         <h2>Are you sure you want to delete '{{ message }}'</h2>
                         <input class="btn" type="submit" value="Delete"/>
                     </form>
-                {% endif %}
             </div>
         </div>
     </section>

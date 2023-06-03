@@ -11,8 +11,8 @@ from django.views.generic import (
     DeleteView,
 )
 
-from MyEventWorld.core.mixins.ownership_mixins import EventOwnershipMixin
 from MyEventWorld.events.forms import *
+from MyEventWorld.events.mixins.event_ownership_mixin import EventOwnershipMixin
 from MyEventWorld.events.models import *
 from MyEventWorld.accounts.models import EventProfile
 

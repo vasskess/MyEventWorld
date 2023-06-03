@@ -48,12 +48,16 @@
                             </div>
                         </div>
                         <div class="creator-interests">
+                         <h4 class="nick-name">Interests</h4>
                             {% for interest in profile.interest_set.all %}
+                                {% if interest %}
                                 <h5>
                                     {{ interest }}
                                 </h5>
+                                {% endif %}
+                                {% empty %}
+                                <h5>No Interests added</h5>
                             {% endfor %}
-
                         </div>
                     </a>
                 </div>

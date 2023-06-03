@@ -6,7 +6,6 @@
         <div class="content-box-msg">
             <div class="messages msg">
                 <div class="single-msg">
-                    {% if is_owner %}
                         <a class="btn" href="{% url "message-inbox" user.eventprofile.pk %}"
                            type="submit">Back</a>
                         <a class="btn" href="{% url "message-delete" messages_received.pk %}"
@@ -19,7 +18,6 @@
                         <div class="message-body">
                             {{ messages_received.message_text|linebreaksbr }}
                         </div>
-                    {% endif %}
                 </div>
             </div>
         </div>
