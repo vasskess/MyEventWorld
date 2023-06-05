@@ -37,7 +37,7 @@
             </div>
             <div class="profile-interests">
                 <h3 class="interests-title">Interests</h3>
-                {% for interest in eventprofile.interest_set.all %}
+                {% for interest in all_interests %}
                     <h4>{{ interest }}</h4>
                     <p>{{ interest.description }}</p>
                 {% empty %}
@@ -51,8 +51,7 @@
 
     </section>>
     <div class="profile-events">
-        {% if eventprofile.event_set.all %}
-            {% for event in eventprofile.event_set.all %}
+            {% for event in all_events %}
                 <div class="profile-event-card">
                     <div class="event-img-container">
                         <a href="{% url "event-details" event.pk %}"><img
@@ -73,11 +72,10 @@
                         </div>
                     </div>
                 </div>
-            {% endfor %}
-        {% else %}
+        {% empty %}
             <p class="no-event">
                 This user has no events added yet
             </p>
-        {% endif %}
+        {% endfor %}
     </div>
 {% endblock content %}
