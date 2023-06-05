@@ -23,7 +23,7 @@ Cloudinary is utilized as the storage solution for event and profile pictures, e
 To provide user-friendly feedback, one-time flash messages are implemented for various actions, such as user creation, deletion, interest/event management, and message handling. 👉 [Examples](#examples)
 Custom mixins to prevent other logged users access to owner content profile/events by hand-typing primary keys. 👉 [Mixins](#mixin)
 A global custom error middleware is implemented to handle and display errors in a consistent and user-friendly manner. 👉 [Middleware](#middleware), 👉 [Error Templates](#errors)
-The project's frontend is developed using HTML and CSS - which should be responsive, but may not be the best one, since i'm not that good with front-end - YET
+The project's frontend is developed using HTML and CSS - which should be responsive, but may not be the best one, since i'm not that good with front-end
 A couple of simple JavaScript functions are implemented to enhance the functionality of the navigation bar and footer. 👉 [jsFuncs](#anchorjs).
 The project incorporates the customizable and customized admin panel through the use of 'django-admin-interface' library. 👉 [admin](#admin).
 
@@ -62,9 +62,9 @@ Creation | Deletion | Updating | Sent
 ![](https://github.com/vasskess/MyEventWorld/assets/96621183/70d64c6b-e3e0-4abf-97aa-03fb28724c60) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/611f3266-9125-4614-bc27-969dfa50431b) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/2479f09e-4b45-44e9-b34a-34fdab86c4dc) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/029a37aa-feb6-4380-abb3-119f4743ef5e)
 -----------------------
 
-<a name="mixin"><p align="center">Owner Mixin</p></a>
+<a name="mixin"><p align="center">Ownership Mixins</p></a>
 -----------------------
-User | Event
+Users | Events
 ----------------------- | -----------------------
 ![](https://github.com/vasskess/MyEventWorld/assets/96621183/e4fe76a2-0607-4310-a810-e9b8c827c91b) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/dc48024a-8ba7-4f64-890d-d5fd972ec005)
 -----------------------
@@ -91,7 +91,7 @@ Navbar | Footer
 
 <a name="admin"><p align="center">AdminSite & AdminCode</p></a>
 -----------------------
-Site | Customized
+Layout Customization | AdminSite Customization
 ----------------------- | -----------------------
 ![](https://github.com/vasskess/MyEventWorld/assets/96621183/7d677b97-76ee-4ace-8636-de0e68263b0f) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/ffd1fda3-0d63-41bc-be66-68cea335403b)
 -----------------------
