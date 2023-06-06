@@ -171,6 +171,15 @@
     .back-btn {
         margin-bottom: 1rem;
     }
+
+    .edit-form-field > a{
+        pointer-events: none;
+    }
+
+    .edit-form-field > input {
+        margin-bottom: 1rem;
+    }
+
 }
 
 @media screen and (min-width: 318px) {
@@ -182,4 +191,20 @@
         padding-bottom: 0;
         max-width: 50rem;
     }
+}
+
+label[for="profile_avatar-clear_id"], label[for="event_picture-clear_id"] {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    background: var(--clr-primary-5);
+    color: var(--clr-white);
+    padding: 0.375rem 0.75rem;
+    letter-spacing: var(--spacing);
+    border-radius: var(--radius);
+}
+label[for="profile_avatar-clear_id"]::before, label[for="event_picture-clear_id"]::before{
+    content: "select the checkbox to ";
+}
+label[for="profile_avatar-clear_id"]::after, label[for="event_picture-clear_id"]::after {
+    content: " your profile picture";
 }
