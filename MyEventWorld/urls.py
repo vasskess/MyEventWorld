@@ -11,7 +11,7 @@ from MyEventWorld.accounts.views import (
 )
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    path("my_event_world_admins/", admin.site.urls),
     path("", include("MyEventWorld.events.urls")),
     path("users/", include("MyEventWorld.accounts.urls")),
     path("common/", include("MyEventWorld.common_stuff.urls")),
