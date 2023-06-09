@@ -25,7 +25,35 @@ Custom mixins to prevent other logged users access to owner content profile/even
 A global custom error middleware is implemented to handle and display errors in a consistent and user-friendly manner. 👉 [Middleware](#middleware), 👉 [Error Templates](#errors)
 The project's frontend is developed using HTML and CSS - which should be responsive, but may not be the best one, since i'm not that good with front-end
 A couple of simple JavaScript functions are implemented to enhance the functionality of the navigation bar and footer. 👉 [jsFuncs](#anchorjs).
-The project incorporates the customizable and customized admin panel through the use of 'django-admin-interface' library. 👉 [admin](#admin).
+The project incorporates the customizable and customized admin panel through the use of 'django-admin-interface' library. 👉 [Admin](#admin).
+-----------------------
+To use the full potential of the app, you need to follow these steps:
+-----------------------
+1. Clone the repository
+ 
+   git clone https://github.com/vasskess/MyEventWorld.git
+
+2. Create a virtual environment (venv).
+
+3. Install the required dependencies by running the following command in the terminal:
+
+    `pip install -r requirements.txt`
+
+4. Set up a PostgreSQL database. You can read more here -> https://www.postgresql.org/
+
+5. Press `Ctrl+Alt+R` to enter the `manage.py` terminal and access autocomplete for commands.
+
+6. Run the `makemigrations` command to create the necessary migrations.
+  
+7. Execute the `migrate` command to apply the migrations to the database.
+
+8. To enable the functionality of Cloudinary and email, you have two options:
+  - Create an `.env` file with the required credentials.
+  - Provide the Cloudinary and email credentials after the setup process. Refer to the app's implementation information for useful links.
+
+Note: If you don't wish to set up Cloudinary and email, you can comment out those functionalities in settings.py, but they will not work.
+
+By following these steps, you will be able to fully utilize the features of the app.
 
 </br>
 
@@ -38,61 +66,61 @@ The project incorporates the customizable and customized admin panel through the
 -----------------------
 Events | Single Event
 ----------------------- | -----------------------
-![](https://github.com/vasskess/MyEventWorld/assets/96621183/cb0398d8-7aca-41a6-94d5-3305b574ac87) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/c498d471-dd81-495c-abda-1f0d83647418)
+![](https://github.com/vasskess/MyEventWorld/assets/96621183/a697ad99-9f8d-45a8-a663-12035b6f6a81) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/598fa06b-9f89-41b7-b71c-1e5c9087888e)
 -----------------------
 
 <a name="creators"><p align="center">Creators</p></a>
 -----------------------
 Creators | Single Creator
 ----------------------- | -----------------------
-![](https://github.com/vasskess/MyEventWorld/assets/96621183/1816cce9-30e9-4ad6-9efc-605e1e9f3a7b) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/1751e4bf-f4ce-4a64-86ea-70e4e76c7e05)
+![](https://github.com/vasskess/MyEventWorld/assets/96621183/7e2e3fde-795e-4b66-906c-ff3bf9338524) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/99eb25a1-159e-4f66-8239-93d69049d194)
 -----------------------
 
 <a name="searches"><p align="center">Searches</p></a>
 -----------------------
 Creators | Events
 -----------------------  | -----------------------
-![](https://github.com/vasskess/MyEventWorld/assets/96621183/11f68dbd-ee9a-4a6f-8c30-932bb69672bc) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/168a6b5f-d717-40ae-9d68-a7cf96d00b2c)
+![](https://github.com/vasskess/MyEventWorld/assets/96621183/a18584cb-4c57-40ca-a2f7-c2630c5b10b0) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/e9824521-5037-4fc5-a677-b717eebef8e3)
 -----------------------
 
 <a name="examples"><p align="center">Flash Messages Examples</p></a>
 -----------------------
 Creation | Deletion | Updating | Sent
 ----------------------- | ----------------------- | ----------------------- | -----------------------
-![](https://github.com/vasskess/MyEventWorld/assets/96621183/70d64c6b-e3e0-4abf-97aa-03fb28724c60) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/611f3266-9125-4614-bc27-969dfa50431b) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/2479f09e-4b45-44e9-b34a-34fdab86c4dc) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/029a37aa-feb6-4380-abb3-119f4743ef5e)
+![](https://github.com/vasskess/MyEventWorld/assets/96621183/1462912c-cd9e-4eb5-a6e3-987306d168b9) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/1c0f0e10-6df5-4a6f-aa30-9fb2138640eb) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/a88e9e12-3d97-44f4-8b7b-ec7897857ecf) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/416faee9-987b-4f3b-9845-77dae252c16b)
 -----------------------
 
 <a name="mixin"><p align="center">Ownership Mixins</p></a>
 -----------------------
 Users | Events
 ----------------------- | -----------------------
-![](https://github.com/vasskess/MyEventWorld/assets/96621183/e4fe76a2-0607-4310-a810-e9b8c827c91b) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/dc48024a-8ba7-4f64-890d-d5fd972ec005)
+![](https://github.com/vasskess/MyEventWorld/assets/96621183/7c088503-5c95-4639-ab8e-c2f38f937bcb) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/44c722ba-a256-4c0d-a33a-d91933098947)
 -----------------------
 
 <a name="middleware"><p align="center">Custom Middleware</p></a>
 -----------------------
 Middleware | Renders
 ----------------------- | -----------------------
-![](https://github.com/vasskess/MyEventWorld/assets/96621183/590c65fd-1e13-459d-b149-535ba7b33ca6) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/73815b9e-c85a-4c79-a9f2-65053127853c)
+![](https://github.com/vasskess/MyEventWorld/assets/96621183/fad7f62f-f02d-4e51-b556-c250022002b3) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/3c34c27c-6522-4514-9c9a-a3d266eb5cfe)
 -----------------------
 
 <a name="errors"><p align="center">Error Templates</p></a>
 -----------------------
 Error 400 | Error 403 | Error 404 | Error 500 & Above
 ----------------------- | ----------------------- | ----------------------- | -----------------------
-![](https://github.com/vasskess/MyEventWorld/assets/96621183/11967b17-4867-4923-ae10-ba723f636193) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/0b984a08-7f0a-4073-8864-3618c4c43a7e) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/b7a18dcc-5778-47c9-ba67-536fbc1f3b54) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/b24c8524-5e88-4001-a782-b0b6158d8499)
+![](https://github.com/vasskess/MyEventWorld/assets/96621183/94466fd7-44aa-488b-9897-f49e37cb245a) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/d16a9625-1338-4339-a4a5-2d7620e24463) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/cdc80ff8-2fe5-4ba2-a976-3c4dfcfbd2d0) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/2a8499da-8917-4baf-88c7-b4a3e516b4ed)
 -----------------------
 <a name="anchorjs"><p align="center">JavaScript</p></a>
 -----------------------
 Navbar | Footer
 ----------------------- | -----------------------
-![](https://github.com/vasskess/MyEventWorld/assets/96621183/56ef4dda-13a1-4e0f-9031-eef0398cd167) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/9f846817-6d98-4d8e-8acd-1bb8c89aaaae)
+![](https://github.com/vasskess/MyEventWorld/assets/96621183/64fd8b3e-ac12-48c3-9a73-883c6c630f5d) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/63ada6fd-d281-41dd-938a-b68c4a05da27)
 -----------------------
 
 <a name="admin"><p align="center">AdminSite & AdminCode</p></a>
 -----------------------
 Layout Customization | AdminSite Customization
 ----------------------- | -----------------------
-![](https://github.com/vasskess/MyEventWorld/assets/96621183/7d677b97-76ee-4ace-8636-de0e68263b0f) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/ffd1fda3-0d63-41bc-be66-68cea335403b)
+![](https://github.com/vasskess/MyEventWorld/assets/96621183/fc77f5a8-ddff-42c8-8c96-975af4d8f170) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/f504afee-5f9c-477f-a6a2-4d18e631138e)
 -----------------------
 <a align="center">[Back to Top](#home)</a>
