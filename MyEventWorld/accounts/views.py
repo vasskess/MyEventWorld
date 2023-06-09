@@ -1,7 +1,13 @@
 from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.views import LoginView, LogoutView, PasswordResetView, PasswordResetDoneView, \
-    PasswordResetConfirmView, PasswordResetCompleteView
+from django.contrib.auth.views import (
+    LoginView,
+    LogoutView,
+    PasswordResetView,
+    PasswordResetDoneView,
+    PasswordResetConfirmView,
+    PasswordResetCompleteView,
+)
 from django.db.models import Q
 from django.urls import reverse_lazy
 from django.views.generic import (
@@ -143,4 +149,3 @@ class UserPasswordConfirmation(PasswordResetConfirmView):
 
 class UserPasswordResetComplete(PasswordResetCompleteView):
     template_name = "reset_password_complete.html"
-

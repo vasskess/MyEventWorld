@@ -23,7 +23,7 @@ class EditEventForm(BaseEventForm):
     pass
 
 
-class DeleteEventForm( DisabledFieldsMixin, BaseEventForm):
+class DeleteEventForm(DisabledFieldsMixin, BaseEventForm):
     pass
 
 

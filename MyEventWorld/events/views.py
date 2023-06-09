@@ -55,7 +55,7 @@ class EventDetails(DetailView):
             f"Review title must be at least {form.instance.__class__.REVIEW_TITLE_MIN_LEN} \
                 and maximum {form.instance.__class__.REVIEW_TITLE_MAX_LEN} characters long ! \
                 Review text must be at least {form.instance.__class__.REVIEW_TEXT_MIN_LEN} \
-                and maximum {form.instance.__class__.REVIEW_TEXT_MAX_LEN} characters long !"
+                and maximum {form.instance.__class__.REVIEW_TEXT_MAX_LEN} characters long !",
         )
         return redirect(request.META["HTTP_REFERER"])
 

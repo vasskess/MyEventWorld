@@ -52,9 +52,7 @@ class ReviewAdmin(admin.ModelAdmin):
         "review_for",
         "date_created",
     )
-    list_filter = (
-        "date_created",
-    )
+    list_filter = ("date_created",)
     ordering = ("-date_created",)
     search_fields = (
         "review_title",

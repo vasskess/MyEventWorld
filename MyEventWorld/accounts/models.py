@@ -3,7 +3,11 @@ import uuid
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.db import models
-from django.core.validators import MinLengthValidator, MinValueValidator, MaxValueValidator
+from django.core.validators import (
+    MinLengthValidator,
+    MinValueValidator,
+    MaxValueValidator,
+)
 
 from cloudinary.models import CloudinaryField
 
@@ -15,8 +19,11 @@ class EventUser(AbstractBaseUser, PermissionsMixin):
     USERNAME_ERROR = "User with that email already exist !"
 
     email = models.EmailField(
-        unique=True, null=False, blank=False, verbose_name="Email",
-        error_messages={"unique": USERNAME_ERROR}
+        unique=True,
+        null=False,
+        blank=False,
+        verbose_name="Email",
+        error_messages={"unique": USERNAME_ERROR},
     )
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(
@@ -25,7 +32,9 @@ class EventUser(AbstractBaseUser, PermissionsMixin):
     date_joined = models.DateTimeField(
         auto_now_add=True,
     )
-    id = models.UUIDField(default=uuid.uuid4, primary_key=True, unique=True, editable=False)
+    id = models.UUIDField(
+        default=uuid.uuid4, primary_key=True, unique=True, editable=False
+    )
 
     USERNAME_FIELD = "email"
 
@@ -35,15 +44,21 @@ class EventUser(AbstractBaseUser, PermissionsMixin):
 class EventProfile(models.Model):
     FIRST_NAME_MIN_LEN = 3
     FIRST_NAME_MAX_LEN = 20
-    FIRST_NAME_MIN_LEN_MESSAGE = f"First name must be at least {FIRST_NAME_MIN_LEN} characters long"
+    FIRST_NAME_MIN_LEN_MESSAGE = (
+        f"First name must be at least {FIRST_NAME_MIN_LEN} characters long"
+    )
 
     LAST_NAME_MIN_LEN = 3
     LAST_NAME_MAX_LEN = 30
-    LAST_NAME_MIN_LEN_MESSAGE = f"Last name must be at least {LAST_NAME_MIN_LEN} characters long"
+    LAST_NAME_MIN_LEN_MESSAGE = (
+        f"Last name must be at least {LAST_NAME_MIN_LEN} characters long"
+    )
 
     LOCATION_MIN_LEN = 3
     LOCATION_MAX_LEN = 55
-    LOCATION_MIN_LEN_MESSAGE = f"Location must be at least {LOCATION_MIN_LEN} characters long"
+    LOCATION_MIN_LEN_MESSAGE = (
+        f"Location must be at least {LOCATION_MIN_LEN} characters long"
+    )
 
     ABOUT_ME_MAX_LEN = 2500
 
@@ -66,7 +81,9 @@ class EventProfile(models.Model):
 
     first_name = models.CharField(
         max_length=FIRST_NAME_MAX_LEN,
-        validators=(MinLengthValidator(FIRST_NAME_MIN_LEN, FIRST_NAME_MIN_LEN_MESSAGE),),
+        validators=(
+            MinLengthValidator(FIRST_NAME_MIN_LEN, FIRST_NAME_MIN_LEN_MESSAGE),
+        ),
         null=True,
         blank=True,
         verbose_name="First Name",

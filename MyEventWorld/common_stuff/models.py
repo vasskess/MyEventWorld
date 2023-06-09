@@ -13,7 +13,9 @@ class Interest(models.Model):
 
     DESCRIPTION_MIN_LEN = 2
     DESCRIPTION_MAX_LEN = 2500
-    DESCRIPTION_LEN_MESSAGE = f"Description must be at least {DESCRIPTION_MIN_LEN} characters long"
+    DESCRIPTION_LEN_MESSAGE = (
+        f"Description must be at least {DESCRIPTION_MIN_LEN} characters long"
+    )
 
     interest_creator = models.ForeignKey(
         EventProfile,
@@ -36,7 +38,9 @@ class Interest(models.Model):
         blank=True,
         verbose_name="Interest description",
     )
-    id = models.UUIDField(default=uuid.uuid4, primary_key=True, unique=True, editable=False)
+    id = models.UUIDField(
+        default=uuid.uuid4, primary_key=True, unique=True, editable=False
+    )
 
     def __str__(self):
         return self.title
@@ -83,7 +87,9 @@ class Message(models.Model):
     )
     read = models.BooleanField(default=False, null=True)
     date_created = models.DateTimeField(auto_now_add=True)
-    id = models.UUIDField(default=uuid.uuid4, primary_key=True, unique=True, editable=False)
+    id = models.UUIDField(
+        default=uuid.uuid4, primary_key=True, unique=True, editable=False
+    )
 
     def __str__(self):
         return self.topic

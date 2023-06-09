@@ -16,7 +16,9 @@ class Event(models.Model):
 
     EVENT_DESCRIPTION_MIN_LEN = 3
     EVENT_DESCRIPTION_MAX_LEN = 2500
-    EVENT_DESCRIPTION_LEN_MESSAGE = f"Description must be at least {EVENT_DESCRIPTION_MIN_LEN} characters long"
+    EVENT_DESCRIPTION_LEN_MESSAGE = (
+        f"Description must be at least {EVENT_DESCRIPTION_MIN_LEN} characters long"
+    )
 
     title = models.CharField(
         max_length=TITLE_MAX_LEN,
@@ -28,7 +30,11 @@ class Event(models.Model):
     )
     event_description = models.TextField(
         max_length=EVENT_DESCRIPTION_MAX_LEN,
-        validators=(MinLengthValidator(EVENT_DESCRIPTION_MIN_LEN, EVENT_DESCRIPTION_LEN_MESSAGE),),
+        validators=(
+            MinLengthValidator(
+                EVENT_DESCRIPTION_MIN_LEN, EVENT_DESCRIPTION_LEN_MESSAGE
+            ),
+        ),
         null=False,
         blank=False,
         verbose_name="Event description",
@@ -50,7 +56,9 @@ class Event(models.Model):
     )
     created = models.DateTimeField(auto_now_add=True, verbose_name="Date created")
     updated = models.DateTimeField(auto_now=True, verbose_name="Date updated")
-    id = models.UUIDField(default=uuid.uuid4, primary_key=True, unique=True, editable=False)
+    id = models.UUIDField(
+        default=uuid.uuid4, primary_key=True, unique=True, editable=False
+    )
 
     class Meta:
         ordering = ["-created", "-updated"]
@@ -90,21 +98,31 @@ class Review(models.Model):
     )
     review_title = models.CharField(
         max_length=REVIEW_TITLE_MAX_LEN,
-        validators=(MinLengthValidator(REVIEW_TITLE_MIN_LEN, ),),
+        validators=(
+            MinLengthValidator(
+                REVIEW_TITLE_MIN_LEN,
+            ),
+        ),
         null=False,
         blank=False,
         verbose_name="Review title",
     )
     review_text = models.TextField(
         max_length=REVIEW_TEXT_MAX_LEN,
-        validators=(MinLengthValidator(REVIEW_TEXT_MIN_LEN, ),),
+        validators=(
+            MinLengthValidator(
+                REVIEW_TEXT_MIN_LEN,
+            ),
+        ),
         null=False,
         blank=False,
         help_text="Keep in mind this is one-time review and you wont be able to edit it!",
         verbose_name="Review text",
     )
     date_created = models.DateTimeField(auto_now_add=True)
-    id = models.UUIDField(default=uuid.uuid4, primary_key=True, unique=True, editable=False)
+    id = models.UUIDField(
+        default=uuid.uuid4, primary_key=True, unique=True, editable=False
+    )
 
     class Meta:
         unique_together = [["review_creator", "review_for"]]

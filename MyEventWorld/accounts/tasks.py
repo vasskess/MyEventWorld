@@ -13,7 +13,7 @@ def send_email_to_new_user(email):
         subject,
         message,
         from_email=settings.DEFAULT_FROM_EMAIL,
-        recipient_list=(email,)
+        recipient_list=(email,),
     )
 
 
