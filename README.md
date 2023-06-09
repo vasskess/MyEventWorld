@@ -66,7 +66,7 @@ By following these steps, you will be able to fully utilize the features of the 
 -----------------------
 Events | Single Event
 ----------------------- | -----------------------
-![](https://github.com/vasskess/MyEventWorld/assets/96621183/cb0398d8-7aca-41a6-94d5-3305b574ac87) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/c498d471-dd81-495c-abda-1f0d83647418)
+![](https://github.com/vasskess/MyEventWorld/assets/96621183/a697ad99-9f8d-45a8-a663-12035b6f6a81) | ![](https://github.com/vasskess/MyEventWorld/assets/96621183/598fa06b-9f89-41b7-b71c-1e5c9087888e)
 -----------------------
 
 <a name="creators"><p align="center">Creators</p></a>
