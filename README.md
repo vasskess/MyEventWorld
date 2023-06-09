@@ -25,7 +25,35 @@ Custom mixins to prevent other logged users access to owner content profile/even
 A global custom error middleware is implemented to handle and display errors in a consistent and user-friendly manner. 👉 [Middleware](#middleware), 👉 [Error Templates](#errors)
 The project's frontend is developed using HTML and CSS - which should be responsive, but may not be the best one, since i'm not that good with front-end
 A couple of simple JavaScript functions are implemented to enhance the functionality of the navigation bar and footer. 👉 [jsFuncs](#anchorjs).
-The project incorporates the customizable and customized admin panel through the use of 'django-admin-interface' library. 👉 [admin](#admin).
+The project incorporates the customizable and customized admin panel through the use of 'django-admin-interface' library. 👉 [Admin](#admin).
+-----------------------
+To use the full potential of the app, you need to follow these steps:
+-----------------------
+1. Clone the repository
+ 
+   git clone https://github.com/vasskess/MyEventWorld.git
+
+2. Create a virtual environment (venv).
+
+3. Install the required dependencies by running the following command in the terminal:
+
+    `pip install -r requirements.txt`
+
+4. Set up a PostgreSQL database. You can read more here -> https://www.postgresql.org/
+
+5. Press `Ctrl+Alt+R` to enter the `manage.py` terminal and access autocomplete for commands.
+
+6. Run the `makemigrations` command to create the necessary migrations.
+  
+7. Execute the `migrate` command to apply the migrations to the database.
+
+8. To enable the functionality of Cloudinary and email, you have two options:
+  - Create an `.env` file with the required credentials.
+  - Provide the Cloudinary and email credentials after the setup process. Refer to the app's implementation information for useful links.
+
+Note: If you don't wish to set up Cloudinary and email, you can comment out those functionalities in settings.py, but they will not work.
+
+By following these steps, you will be able to fully utilize the features of the app.
 
 </br>
 
