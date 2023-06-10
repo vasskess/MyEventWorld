@@ -17,6 +17,26 @@ urlpatterns = (
             ]
         ),
     ),
+    path(
+        "reset_password/",
+        UserPasswordReset.as_view(),
+        name="reset_password",
+    ),
+    path(
+        "reset_password_sent/",
+        UserPasswordResetDone.as_view(),
+        name="password_reset_done",
+    ),
+    path(
+        "reset/<uidb64>/<token>/",
+        UserPasswordConfirmation.as_view(),
+        name="password_reset_confirm",
+    ),
+    path(
+        "reset_password_complete/",
+        UserPasswordResetComplete.as_view(),
+        name="password_reset_complete",
+    ),
 )
 
 from .signals import *
