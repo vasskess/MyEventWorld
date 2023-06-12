@@ -1,4 +1,9 @@
-from MyEventWorld.core.validators.error_renders import error_400, error_403, error_404, server_errors
+from MyEventWorld.core.validators.error_renders import (
+    error_400,
+    error_403,
+    error_404,
+    server_errors,
+)
 
 
 class SimpleMiddleware:

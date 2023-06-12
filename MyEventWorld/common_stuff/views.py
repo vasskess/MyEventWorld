@@ -12,8 +12,13 @@ from django.views.generic import (
 )
 
 from MyEventWorld.accounts.models import EventProfile
-from MyEventWorld.common_stuff.forms import CreateInterestForm, EditInterestForm, DeleteInterestForm, CreateMessageForm, \
-    DeleteMessageForm
+from MyEventWorld.common_stuff.forms import (
+    CreateInterestForm,
+    EditInterestForm,
+    DeleteInterestForm,
+    CreateMessageForm,
+    DeleteMessageForm,
+)
 from MyEventWorld.common_stuff.models import Interest, Message
 
 

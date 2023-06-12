@@ -22,7 +22,12 @@ from django.contrib import messages
 from MyEventWorld.accounts.mixins.account_mixins import UserOwnershipMixin
 from MyEventWorld.accounts.mixins.login_restrict_mixin import NotLoginRequiredMixin
 
-from MyEventWorld.accounts.forms import ProfileCreationForm, ProfileEditForm, ProfileDeleteForm, UserLoginForm
+from MyEventWorld.accounts.forms import (
+    ProfileCreationForm,
+    ProfileEditForm,
+    ProfileDeleteForm,
+    UserLoginForm,
+)
 from MyEventWorld.accounts.models import EventProfile
 
 

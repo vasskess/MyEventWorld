@@ -1,6 +1,13 @@
 from django.urls import path, include
-from MyEventWorld.common_stuff.views import InterestCreate, InterestUpdate, InterestDelete, MessageInbox, ReadMessage, \
-    CreateMessage, DeleteMessage
+from MyEventWorld.common_stuff.views import (
+    InterestCreate,
+    InterestUpdate,
+    InterestDelete,
+    MessageInbox,
+    ReadMessage,
+    CreateMessage,
+    DeleteMessage,
+)
 
 urlpatterns = (
     path("interest/create/", InterestCreate.as_view(), name="interest-create"),

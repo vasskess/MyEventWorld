@@ -11,7 +11,12 @@ from django.views.generic import (
     DeleteView,
 )
 
-from MyEventWorld.events.forms import CreateReviewForm, CreateEventForm, EditEventForm, DeleteEventForm
+from MyEventWorld.events.forms import (
+    CreateReviewForm,
+    CreateEventForm,
+    EditEventForm,
+    DeleteEventForm,
+)
 from MyEventWorld.events.mixins.event_ownership_mixin import EventOwnershipMixin
 from MyEventWorld.events.models import Event
 from MyEventWorld.accounts.models import EventProfile
