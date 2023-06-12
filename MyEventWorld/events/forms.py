@@ -1,7 +1,7 @@
 from django.forms import ModelForm
 
 from MyEventWorld.core.mixins.form_fields_mixin import DisabledFieldsMixin
-from MyEventWorld.events.models import *
+from MyEventWorld.events.models import Event, Review
 
 
 class BaseEventForm(ModelForm):

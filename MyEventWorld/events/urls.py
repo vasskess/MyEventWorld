@@ -1,6 +1,6 @@
 from django.urls import path, include
 
-from MyEventWorld.events.views import *
+from MyEventWorld.events.views import EventsList, EventCreate, EventDetails, EventUpdate, EventDelete
 
 urlpatterns = (
     path("", EventsList.as_view(), name="events-list"),

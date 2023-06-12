@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from MyEventWorld.common_stuff.models import *
+from MyEventWorld.common_stuff.models import Interest, Message
 
 
 @admin.register(Interest)

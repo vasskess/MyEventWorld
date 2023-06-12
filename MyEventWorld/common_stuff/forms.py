@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 
-from MyEventWorld.common_stuff.models import *
+from MyEventWorld.common_stuff.models import Interest, Message
 from MyEventWorld.core.mixins.form_fields_mixin import DisabledFieldsMixin
 
 

@@ -1,5 +1,7 @@
 from django.urls import path, include
-from MyEventWorld.accounts.views import *
+from MyEventWorld.accounts.views import UsersList, UserCreate, UserLogin, UserLogout, UserDetails, UserProfile, \
+    UserProfileEdit, UserProfileDelete, UserPasswordReset, UserPasswordResetDone, UserPasswordConfirmation, \
+    UserPasswordResetComplete
 
 urlpatterns = (
     path("", UsersList.as_view(), name="users-list"),

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from MyEventWorld.events.models import *
+from MyEventWorld.events.models import Event, Review
 
 
 @admin.register(Event)

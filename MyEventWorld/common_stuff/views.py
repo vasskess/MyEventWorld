@@ -11,8 +11,10 @@ from django.views.generic import (
     DetailView,
 )
 
-from MyEventWorld.common_stuff.forms import *
-from MyEventWorld.common_stuff.models import *
+from MyEventWorld.accounts.models import EventProfile
+from MyEventWorld.common_stuff.forms import CreateInterestForm, EditInterestForm, DeleteInterestForm, CreateMessageForm, \
+    DeleteMessageForm
+from MyEventWorld.common_stuff.models import Interest, Message
 
 
 class InterestCreate(LoginRequiredMixin, CreateView):
