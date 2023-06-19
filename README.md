@@ -43,11 +43,9 @@ To use the full potential of the app, you need to follow these steps:
 
 5. Press `Ctrl+Alt+R` to enter the `manage.py` terminal and access autocomplete for commands.
 
-6. Run the `makemigrations` command to create the necessary migrations.
-  
-7. Execute the `migrate` command to apply the migrations to the database.
+6. You can directly execute the `migrate` command to apply the migrations to the database - since the 'migration folders' are included in the project.
 
-8. To enable the functionality of Cloudinary and email, you have two options:
+7. To enable the functionality of Cloudinary and email, you have two options:
   - Create an `.env` file with the required credentials.
   - Provide the Cloudinary and email credentials after the setup process. Refer to the app's implementation information for useful links.
 
