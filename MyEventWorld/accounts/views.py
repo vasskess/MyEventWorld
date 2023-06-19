@@ -29,6 +29,7 @@ from MyEventWorld.accounts.forms import (
     UserLoginForm,
 )
 from MyEventWorld.accounts.models import EventProfile
+from MyEventWorld.core.mixins.context_mixin import ContextMixin
 
 
 class UsersList(ListView):
@@ -54,26 +55,14 @@ class UsersList(ListView):
         return queryset
 
 
-class UserDetails(DetailView):
+class UserDetails(ContextMixin, DetailView):
     model = EventProfile
     template_name = "accounts/profile_details.html"
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["all_interests"] = self.object.interest_set.all
-        context["all_events"] = self.object.event_set.all
-        return context
 
-
-class UserProfile(LoginRequiredMixin, UserOwnershipMixin, DetailView):
+class UserProfile(LoginRequiredMixin, UserOwnershipMixin, ContextMixin, DetailView):
     model = EventProfile
     template_name = "accounts/profile.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["all_interests"] = self.object.interest_set.all
-        context["all_events"] = self.object.event_set.all
-        return context
 
 
 class UserCreate(NotLoginRequiredMixin, CreateView):
