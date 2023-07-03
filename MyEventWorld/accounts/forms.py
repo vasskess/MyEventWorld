@@ -24,6 +24,10 @@ class ProfileCreationForm(UserCreationForm):
         )
     )
 
+    error_messages = {
+        "password_mismatch": "Passwords confirmation does not match",
+    }
+
     gender = forms.CharField(
         widget=forms.RadioSelect(choices=Genders.choices()),
         initial=Genders.Unpicked.name,
