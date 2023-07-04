@@ -1,8 +1,5 @@
-from django.contrib.auth import get_user_model
 from MyEventWorld.accounts.forms import ProfileCreationForm
 from tests.accounts.base_test_case import BaseTestCase
-
-UserModel = get_user_model()
 
 
 class UserRegistrationFormTests(BaseTestCase):

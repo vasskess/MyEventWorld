@@ -8,7 +8,7 @@ from tests.accounts.base_test_case import BaseTestCase
 user = get_user_model()
 
 
-class UserLoginFormTest(BaseTestCase):
+class UserLoginFormTests(BaseTestCase):
     def setUp(self):
         self.username = "test_email@example.com"
         self.password = "11qwerty11"
