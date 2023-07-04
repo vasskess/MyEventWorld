@@ -55,11 +55,6 @@ By following these steps, you will be able to fully utilize the features of the 
 
 </br>
 
-|Future TODO Implementations|
-|:-----------------------:|
-- [ ] Extend Project with REST capabilities
-- [ ] Write Integration Tests
-
 <a name="events"><p align="center">Events</p></a>
 -----------------------
 Events | Single Event
