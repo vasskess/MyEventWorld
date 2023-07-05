@@ -3,29 +3,31 @@ from django.contrib.auth import get_user_model
 from django.urls import reverse
 
 from MyEventWorld.accounts.forms import UserLoginForm
-from tests.accounts.base_test_case import BaseTestCase
+from django.test import TestCase
 
-user = get_user_model()
+User = get_user_model()
 
 
-class UserLoginFormTests(BaseTestCase):
+class UserLoginFormTests(TestCase):
     def setUp(self):
-        self.username = "test_email@example.com"
-        self.password = "11qwerty11"
-        self.user = user.objects.create_user(
-            email=self.username, password=self.password
+        self.valid_username = "test_email@example.com"
+        self.invalid_username = "vaskes@example.com"
+        self.valid_password = "11qwerty11"
+        self.invalid_password = "11qwert22"
+        self.user = User.objects.create_user(
+            email=self.valid_username, password=self.valid_password
         )
 
     def test_invalid_login_invalid_username(self):
         url = reverse("login")
-        data = {"username": "vaskes@example.com", "password": self.password}
+        data = {"username": self.invalid_username, "password": self.valid_password}
         form = UserLoginForm(data=data)
         response = self.client.post(url, data=form.data)
         self.assertFormError(response, "form", None, "Username is not valid")
 
     def test_invalid_login_invalid_password(self):
         url = reverse("login")
-        data = {"username": self.username, "password": "11qwerty22"}
+        data = {"username": self.valid_username, "password": self.invalid_password}
         form = UserLoginForm(data=data)
         response = self.client.post(url, data=form.data)
         self.assertFormError(response, "form", None, "Password is incorrect")

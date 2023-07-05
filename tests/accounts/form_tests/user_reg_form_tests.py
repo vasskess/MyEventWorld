@@ -52,5 +52,5 @@ class UserRegistrationFormTests(BaseTestCase):
 
         self.assertFalse(form.is_valid())
         self.assertEquals(
-            form.errors["password2"], ["Passwords confirmation does not match"]
+            form.errors["password2"], ["Password confirmation does not match"]
         )

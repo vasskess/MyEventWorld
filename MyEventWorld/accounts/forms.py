@@ -25,7 +25,7 @@ class ProfileCreationForm(UserCreationForm):
     )
 
     error_messages = {
-        "password_mismatch": "Passwords confirmation does not match",
+        "password_mismatch": "Password confirmation does not match",
     }
 
     gender = forms.CharField(

@@ -1,15 +1,15 @@
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 
-from tests.accounts.base_test_case import BaseTestCase
+from django.test import TestCase
 
 User = get_user_model()
 
 
-class UserCreateViewTests(BaseTestCase):
+class UserCreateViewTests(TestCase):
     def setUp(self):
-        self.username = 'testuser@example.com'
-        self.password = 'password123'
+        self.username = 'test_email@example.com'
+        self.password = '11qwerty11'
         self.user = User.objects.create_user(
             email=self.username,
             password=self.password
